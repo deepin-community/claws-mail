@@ -1,4 +1,59 @@
 #!/usr/bin/make -f
 
+include /usr/share/dpkg/pkg-info.mk
+
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+TMP := $(CURDIR)/debian/tmp
+ISO_DATE := $(shell date +%Y-%m-%d -u -d @$(SOURCE_DATE_EPOCH))
+
+MANUAL =
+XDOCPKG =
+ifneq (,$(findstring nodoc,$(DEB_BUILD_OPTIONS)))
+  MANUAL = --disable-manual
+  XDOCPKG = -Xclaws-mail-doc
+endif
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
 %:
 	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		--prefix=/usr \
+		--mandir=/usr/share/man \
+		--infodir=/usr/share/info \
+		--libdir=/usr/lib/$(DEB_HOST_MULTIARCH) \
+		--enable-ipv6 \
+		--enable-ldap \
+		--with-config-dir=.claws-mail $(MANUAL)
+
+execute_before_dh_clean:
+	$(MAKE) -C debian/manpages clean
+	rm -f src/plugins/perl/tools/matcherrc2perlfilter
+
+execute_before_dh_auto_build:
+	$(MAKE) -C debian/manpages VERSION="$(DEB_VERSION)" DATE="$(ISO_DATE)"
+	pod2man --center="claws-mail-perl-filter" \
+		--date="$(ISO_DATE)" \
+		--release="$(DEB_VERSION)" src/plugins/perl/cm_perl.pod \
+		--section=7 \
+		> debian/manpages/claws-mail-perl-filter.7
+	cp -p src/plugins/perl/tools/matcherrc2perlfilter.pl \
+		src/plugins/perl/tools/matcherrc2perlfilter
+
+override_dh_compress:
+	dh_compress -Xclaws-mail/tools
+
+override_dh_installdocs-arch:
+	dh_installdocs --arch -A $(XDOCPKG)
+
+override_dh_installdocs-indep:
+	dh_installdocs --indep -A $(XDOCPKG)
+
+execute_before_dh_install:
+ifneq (,$(MANUAL))
+	mkdir -p $(TMP)/usr/share/doc/claws-mail/manual
+	echo "Package built with 'nodoc' option" \
+		> $(TMP)/usr/share/doc/claws-mail/manual/INFO
+endif

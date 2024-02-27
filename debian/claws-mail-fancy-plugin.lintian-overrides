@@ -1,0 +1,2 @@
+# Plugin extension for Fancy plugin
+library-not-linked-against-libc [usr/lib/*/claws-mail/plugins/web_extensions/fancywebextension.so]

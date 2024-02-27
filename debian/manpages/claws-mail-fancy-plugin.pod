@@ -1,0 +1,66 @@
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+claws-mail-fancy-plugin - HTML rendering of mails using WebKit library
+
+=head1 DESCRIPTION
+
+This manual page documents briefly the B<claws-mail-fancy-plugin>.
+
+This manual page was written for the Debian™ distribution because the
+original program does not have a manual page.
+
+B<claws-mail-fancy-plugin> is a plugin (loadable module) for the
+I<Claws Mail> mailer.
+
+This plugin enables viewing HTML mails (and HTML attachments)
+within the I<Claws Mail> message window using the GTK port of the
+WebKit library.
+
+=head1 USAGE
+
+Before using a plugin you must instruct I<Claws Mail> to load it on
+startup.
+
+For this you must go “Configuration” menu on main window toolbar, open
+“Plugins...”  dialog, click on the “Load plugin...”  button and select
+the plugin file, named B<fancy.so>, and press the “Open” button.
+
+=head1 SEE ALSO
+
+B<claws-mail>(1),
+B<claws-mail-extra-plugins>(7),
+The WebKitGTK web site L<https://webkitgtk.org/>.
+
+=head1 AUTHORS
+
+=over
+
+=item Salvatore De Paolis <iwkse@claws-mail.org>
+
+Wrote the B<claws-mail-fancy-plugin>.
+
+=item Ricardo Mones <mones@debian.org>
+
+Wrote this manpage for the Debian™ system.
+
+=back
+
+=head1 COPYRIGHT
+
+Copyright © 2013-2022 Ricardo Mones
+
+This manual page was written for the Debian system (but may be used by
+others).
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License, Version 3 or (at your
+option) any later version published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public License
+can be found in F</usr/share/common-licenses/GPL>.
+
+=cut

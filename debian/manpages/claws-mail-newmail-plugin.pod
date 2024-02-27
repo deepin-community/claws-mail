@@ -1,0 +1,99 @@
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+claws-mail-newmail-plugin - message header summary to a log file
+
+=head1 DESCRIPTION
+
+This manual page documents briefly the B<claws-mail-newmail-plugin>
+package.
+
+This manual page was written for the Debian™ distribution because the
+original program does not have a manual page.
+
+B<claws-mail-newmail-plugin> is a plugin (loadable module) for the
+I<Claws Mail> mailer.
+
+This plugin writes a summary of new mail headers and message related
+values to a log file. Writing is done after sorting.
+
+The message headers written are: C<Date:>, C<Subject:>, C<From:>, C<To:>
+and C<Cc:>. Additionally the message related values currently written
+are the following:
+
+=over 4
+
+=item C<Size:>
+
+The size of the message in bytes.
+
+=item C<Path:>
+
+The full path to the message file.
+
+=item C<Message:>
+
+The number of the message.
+
+=item C<Folder:>
+
+The folder of the message.
+
+=back
+
+=head1 USAGE
+
+Before using a plugin you must instruct I<Claws Mail> to load it on
+startup.
+
+For this you must go “Configuration” menu on main window toolbar, open
+“Plugins...”  dialog, click on the “Load plugin...”  button and select
+the plugin file, named B<newmail.so>, and press the “Open” button.
+
+=head1 FILES
+
+=over
+
+=item F<~/Mail/NewLog>
+
+Default filename where header summary is written.
+
+=back
+
+=head1 SEE ALSO
+
+B<claws-mail>(1),
+B<claws-mail-extra-plugins>(7).
+
+=head1 AUTHORS
+
+=over
+
+=item H. Merijn Brand <h.m.brand@xs4all.nl>
+
+Wrote the B<claws-mail-newmail-plugin> plugin.
+
+=item Ricardo Mones <mones@debian.org>
+
+Wrote this manpage for the Debian system.
+
+=back
+
+=head1 COPYRIGHT
+
+Copyright © 2006-2020 Ricardo Mones
+
+This manual page was written for the Debian system (but may be used by
+others).
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License, Version 3 or (at your
+option) any later version published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public License
+can be found in F</usr/share/common-licenses/GPL>.
+
+=cut

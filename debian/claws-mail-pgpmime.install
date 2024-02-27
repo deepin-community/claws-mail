@@ -1,0 +1,3 @@
+usr/lib/*/claws-mail/plugins/pgpmime.so
+usr/lib/*/claws-mail/plugins/pgpcore.so
+usr/lib/*/claws-mail/plugins/pgpmime.deps

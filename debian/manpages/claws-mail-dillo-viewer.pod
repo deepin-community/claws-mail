@@ -1,0 +1,76 @@
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+claws-mail-dillo-viewer - display HTML message parts using Dillo browser
+
+=head1 DESCRIPTION
+
+This manual page documents briefly the B<claws-mail-dillo-viewer>
+package.
+
+This manual page was written for the Debian distribution because the
+original program does not have a manual page.
+
+B<claws-mail-dillo-viewer> is a plugin (loadable module) for the
+I<Claws Mail> mailer.
+
+This plugin allows viewing HTML messages with the Dillo browser embedded
+in the message view.
+
+By default no remote URLs are retrieved for safe browsing.
+
+=head1 USAGE
+
+Before using a plugin you must instruct I<Claws Mail> to load it on
+startup.
+
+For this you must go “Configuration” menu on main window toolbar, open
+“Plugins...”  dialog, click on the “Load plugin...”  button and select
+the plugin file, named B<dillo.so>, and press the “Open” button.
+
+=head1 BUGS
+
+Please use reportbug B<claws-mail-dillo-viewer> for reporting Debian
+bugs for this package.
+
+The upstream BTS can be found at
+L<http://www.thewildbeast.co.uk/claws-mail/bugzilla/index.cgi>.
+
+=head1 SEE ALSO
+
+B<dillo>(1),
+B<claws-mail>(1),
+B<claws-mail-extra-plugins>(7).
+
+=head1 AUTHORS
+
+=over
+
+=item The Claws Mail Team <theteam@claws-mail.org>
+
+Wrote the B<claws-mail-dillo-viewer> plugin.
+
+=item Ricardo Mones <mones@debian.org>
+
+Wrote this manpage for the Debian™ system.
+
+=back
+
+=head1 COPYRIGHT
+
+Copyright © 2008-2020 Ricardo Mones
+
+This manual page was written for the Debian system (but may be used by
+others).
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License, Version 3 or (at your
+option) any later version published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public License
+can be found in F</usr/share/common-licenses/GPL>.
+
+=cut

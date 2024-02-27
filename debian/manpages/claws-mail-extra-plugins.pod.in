@@ -1,0 +1,54 @@
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+claws-mail-extra-plugins - extra plugins meta-package for Claws Mail
+
+=head1 DESCRIPTION
+
+B<claws-mail-extra-plugins> is a meta package for installing all extra
+plugins for the I<Claws Mail> mailer.
+
+The manpage names corresponding to each available plugin can be found in
+the B<SEE ALSO> section.
+
+=head1 HISTORY
+
+The extra plugins is a collection of plugins which was initially
+released as a separate tarball download containing all the contributed
+plugins from the I<Claws Mail> website.
+
+To allow faster releases, early in 2013 all the extra plugins were
+incorporated to the main CVS tree, next to the core plugins. Since then
+all of them were included in the main release tarball.
+
+=head1 SEE ALSO
+
+MANPAGES
+B<claws-mail>(1).
+
+=head1 AUTHOR
+
+=over
+
+=item Ricardo Mones <mones@debian.org>
+
+Wrote this manpage for the Debian system.
+
+=back
+
+=head1 COPYRIGHT
+
+Copyright © 2005-2020 Ricardo Mones
+
+This manual page was written for the Debian system (but may be used by
+others).
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License, Version 3 or (at your
+option) any later version published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public License
+can be found in /usr/share/common-licenses/GPL.

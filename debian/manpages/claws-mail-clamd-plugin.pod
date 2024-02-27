@@ -1,0 +1,86 @@
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+claws-mail-clamd-plugin - scan mails for virus with ClamAV
+
+=head1 DESCRIPTION
+
+This manual page documents briefly the B<claws-mail-clamd-plugin>
+package.
+
+This manual page was written for the Debian™ distribution because the
+original program does not have a manual page.
+
+B<claws-mail-clamd-plugin> is a plugin (loadable module) for the
+I<Claw Mail> mailer.
+
+This plugin allows scanning of mails using the Clam AntiVirus.
+
+Due license restrictions no clamav library is used and it is required
+that the ClamAV daemon (clamd) is running on some computer, either
+localhost or a remote one. Mails to be scanned and scanning results will
+be sent to and received from this daemon using a socket.
+
+This may impose additional requirements for your home folder and I<Claws
+Mail> resource folder (F<~/.claws-mail>): global executable permission
+must be given to these folders if clamd is configured to use a Unix
+socket.
+
+To avoid changing permissions clamd can be configured to use a TCP
+socket instead, but notice that this requires enabling manual
+configuration in B<claws-mail-clamd-plugin>.
+
+=head1 USAGE
+
+Before using a plugin you must instruct I<Claws Mail> to load it on
+startup.
+
+For this you must go “Configuration” menu on main window toolbar, open
+“Plugins...”  dialog, click on the “Load plugin...”  button and select
+the plugin file, named B<clamd.so>, and press the “Open” button.
+
+=head1 SECURITY CONSIDERATIONS
+
+Giving global executable permissions to your home and F<~/.claws-mail>
+folders allows other users of the system to browse the content of these
+folders. This may not be what you want, specially on shared machines.
+
+=head1 SEE ALSO
+
+B<chmod>(1),
+B<claws-mail>(1),
+B<claws-mail-extra-plugins>(7),
+B<clamd>(8).
+
+=head1 AUTHORS
+
+=over
+
+=item Michael Rasmussen <mir@datanom.net>
+
+Wrote the B<claws-mail-clamd-plugin> plugin.
+
+=item Ricardo Mones <mones@debian.org>
+
+Wrote this manpage for the Debian™ system.
+
+=back
+
+=head1 COPYRIGHT
+
+Copyright © 2007-2020 Ricardo Mones
+
+This manual page was written for the Debian system (but may be used by
+others).
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License, Version 3 or (at your
+option) any later version published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public License
+can be found in F</usr/share/common-licenses/GPL>.
+
+=cut

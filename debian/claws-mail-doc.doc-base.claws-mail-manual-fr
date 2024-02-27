@@ -1,0 +1,18 @@
+Document: claws-mail-manual-fr
+Title: Claws Mail Manual (French)
+Author: Colin Leroy, Paul Mangan, Ricardo Mones, Tristan Chabredier
+Abstract: This is Claws Mail Manual (French language translation)
+Section: Network/Communication
+
+Format: Text
+Files: /usr/share/doc/claws-mail/manual/fr/claws-mail-manual.txt.gz
+
+Format: PostScript
+Files: /usr/share/doc/claws-mail/manual/fr/claws-mail-manual.ps.gz
+
+Format: PDF
+Files: /usr/share/doc/claws-mail/manual/fr/claws-mail-manual.pdf.gz
+
+Format: HTML
+Index: /usr/share/doc/claws-mail/manual/fr/claws-mail-manual.html
+Files: /usr/share/doc/claws-mail/manual/fr/*.html

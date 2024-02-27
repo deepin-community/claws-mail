@@ -1,0 +1,11 @@
+Bug-Database: https://www.thewildbeast.co.uk/claws-mail/bugzilla/buglist.cgi?product=Claws%20Mail
+Bug-Submit: https://www.thewildbeast.co.uk/claws-mail/bugzilla/enter_bug.cgi
+Changelog: https://git.claws-mail.org/?p=claws.git;a=log
+CPE: cpe:/a:claws-mail:claws-mail
+Documentation: https://www.claws-mail.org/documentation.php
+Donation: https://www.claws-mail.org/donations.php
+FAQ: https://www.claws-mail.org/faq/index.php/Main_Page
+Repository: https://git.claws-mail.org/readonly/claws.git
+Repository-Browse: https://git.claws-mail.org/?p=claws.git;a=summary
+Screenshots: https://www.claws-mail.org/screenshots.php
+Security-Contact: ricardo@mones.org

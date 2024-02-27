@@ -1,0 +1,70 @@
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+claws-mail-pdf-viewer - display PDF and PostScript® attachments
+
+=head1 DESCRIPTION
+
+This manual page documents briefly the B<claws-mail-pdf-viewer> package.
+
+This manual page was written for the Debian™ distribution because the
+original program does not have a manual page.
+
+B<claws-mail-pdf-viewer> is a plugin (loadable module) for the I<Claws
+Mail> mailer.
+
+This plugin enables rendering of Portable Document Format (PDF) and
+PostScript® attachments within the message view of I<Claws Mail>.
+
+PDF rendering is done using the poppler library.
+
+PostScript® rendering requires gs tool for converting to PDF. If gs not
+available only PDF attachments will be displayed.
+
+=head1 USAGE
+
+Before using a plugin you must instruct I<Claws Mail> to load it on
+startup.
+
+For this you must go “Configuration” menu on main window toolbar, open
+“Plugins...”  dialog, click on the “Load plugin...”  button and select
+the plugin file, named B<pdf_viewer.so>, and press the “Open” button.
+
+=head1 SEE ALSO
+
+B<gs>(1),
+B<claws-mail>(1),
+B<claws-mail-extra-plugins>(7).
+
+=head1 AUTHORS
+
+=over
+
+=item Salvatore De Paolis <iwkse@claws-mail.org>
+
+Wrote the B<claws-mail-pdf-viewer> plugin.
+
+=item Ricardo Mones <mones@debian.org>
+
+Wrote this manpage for the Debian™ system.
+
+=back
+
+=head1 COPYRIGHT
+
+Copyright © 2012-2020 Ricardo Mones
+
+This manual page was written for the Debian system (but may be used by
+others).
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License, Version 3 or (at your
+option) any later version published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public License
+can be found in F</usr/share/common-licenses/GPL>.
+
+=cut
