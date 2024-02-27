@@ -1,0 +1,9 @@
+tools/*.pl usr/share/doc/claws-mail/tools
+tools/*.py usr/share/doc/claws-mail/tools
+tools/*.sh usr/share/doc/claws-mail/tools
+tools/kdeservicemenu usr/share/doc/claws-mail/tools
+tools/multiwebsearch.conf usr/share/doc/claws-mail/tools
+tools/tb2claws-mail usr/share/doc/claws-mail/tools
+tools/update-po usr/share/doc/claws-mail/tools
+tools/uudec usr/share/doc/claws-mail/tools
+tools/uuooffice usr/share/doc/claws-mail/tools

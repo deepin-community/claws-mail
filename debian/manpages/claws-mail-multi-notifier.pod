@@ -1,0 +1,109 @@
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+claws-mail-multi-notifier - several modules for new mail notification
+
+=head1 DESCRIPTION
+
+This manual page documents briefly the B<claws-mail-multi-notifier>
+package.
+
+This manual page was written for the Debian™ distribution because the
+original program does not have a manual page.
+
+B<claws-mail-multi-notifier> is a plugin (loadable module) for the
+I<Claws Mail> mailer.
+
+Provides various ways to notify the user of new and (possibly) unread
+email.
+
+The following modules are currently implemented:
+
+=over 4
+
+=item Banner
+
+A mail ticker.
+
+=item Popup
+
+A popup window on mail arrival.
+
+=item Command
+
+Execute a custom command on mail arrival.
+
+=item LCD
+
+Send a message to a LCDd server on mail arrival.
+
+=item SysTrayicon
+
+A system tray icon, with or without toaster popup.
+
+=item Indicator
+
+An indicator icon.
+
+=back
+
+=head1 USAGE
+
+Before using a plugin you must instruct I<Claws Mail> to load it on
+startup.
+
+For this you must go “Configuration” menu on main window toolbar, open
+“Plugins...”  dialog, click on the “Load plugin...”  button and select
+the plugin file, named B<notification.so>, and press the “Open” button.
+
+=head1 CAVEATS
+
+Some IMAP servers (for example Gmail™) doesn't implement the C<\Recent>
+flag on messages (see B<NOTES>). Therefore, notifications about new mail
+will be unreliable on these servers.
+
+=head1 SEE ALSO
+
+B<claws-mail>(1),
+B<notify-send>(1),
+B<osd_cat>(1),
+B<play>(1),
+B<claws-mail-extra-plugins>(7).
+
+=head1 NOTES
+
+See support page “Does Gmail support all IMAP features?” at
+L<http://support.google.com/mail/bin/answer.py?hl=en&answer=78761>
+
+=head1 AUTHORS
+
+=over
+
+=item Holger Berndt <berndth@gmx.de>
+
+Wrote the B<claws-mail-multi-notifier> plugin.
+
+=item Ricardo Mones <mones@debian.org>
+
+Wrote this manpage for the Debian™ system.
+
+=back
+
+=head1 COPYRIGHT
+
+Copyright © 2006-2020 Ricardo Mones
+
+This manual page was written for the Debian system (but may be used by
+others).
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License, Version 3 or (at your
+option) any later version published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public License
+can be found in F</usr/share/common-licenses/GPL>.
+
+=cut

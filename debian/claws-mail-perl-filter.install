@@ -1,0 +1,2 @@
+usr/lib/*/claws-mail/plugins/perl.so
+src/plugins/perl/tools/matcherrc2perlfilter usr/bin

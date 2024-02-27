@@ -1,0 +1,1212 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<section id="ch_advanced">
+  <title>Utilisation avancée</title>
+  <section id="adv_actions">
+    <title>Actions</title>
+    <para>
+	  Les actions permettent l'utilisation de toute la puissance de la 
+	  ligne de commande Unix avec vos messages. Vous pouvez définir de 
+	  nombreuses commandes, prenant des paramètres, comme par exemple 
+	  le fichier courriel courant, le texte actuellement sélectionné 
+	  et ainsi de suite. De cette façon vous serez à même d'exécuter 
+	  des tâches variées comme éditer un courriel brut dans un éditeur 
+	  de texte, "cacher" ce que vous voulez dire en utilisant ROT-13, 
+	  utiliser les patches contenus dans vos messages directement. La 
+	  seule limitation est votre propre imagination. Vous pouvez 
+	  configurer les actions via le menu <quote>Outils</quote>.
+    </para>
+    <para>
+      D'autre part, il est possible d'ajouter des actions sur la barre d'outils.
+	  Pour cela, allez dans le menu <quote>Configuration/Préférences</quote>
+	  et sélectionnez <quote>Barres d'outils/Vue principale</quote>.
+	  Sélectionnez <quote>Action</quote> dans le menu déroulant <quote>Type
+	  d'élément</quote>, puis sélectionnez l'action dans le menu déroulant
+	  <quote>Fonction à exécuter</quote> ; enfin, cliquez sur le bouton
+	  <quote>Icône</quote> pour choisir l'icône à utiliser.
+    </para>
+    <blockquote>
+      <example>
+        <title>Un <quote>Ouvrir Avec...</quote> simple</title>
+        <variablelist>
+          <varlistentry>
+            <term>Menu nom&nbsp;: <emphasis>Ouvrir avec/kate</emphasis> Ligne de Commande&nbsp;: <emphasis>kate %p</emphasis></term>
+            <listitem>
+              <para>
+                Ouvre le fichier de la partie MIME décodée sélectionnée (<emphasis>%p</emphasis>) avec l'éditeur de texte <emphasis>kate</emphasis>.
+			  </para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </example>
+      <example>
+        <title>Gestion des pourriels en utilisant <ulink url="https://bogofilter.sourceforge.io/">Bogofilter</ulink></title>
+        <variablelist>
+          <varlistentry>
+            <term>Menu nom&nbsp;: <emphasis>Bogofilter/Marquer comme courriels légitimes</emphasis> Ligne de Commande&nbsp;: <emphasis>bogofilter -n -v -B "%f"</emphasis></term>
+            <listitem>
+              <para>
+                Marque les courriels sélectionnés (<emphasis>%f</emphasis>) comme n'étant pas des pourriels en utilisant <emphasis>Bogofilter</emphasis>.
+			  </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Menu nom&nbsp;: <emphasis>Bogofilter/Marquer comme pourriels</emphasis> Ligne de Commande&nbsp;: <emphasis>bogofilter -s -v -B "%f"</emphasis></term>
+            <listitem>
+              <para>
+                Marque les courriels sélectionnés (<emphasis>%f</emphasis>) comme étant des pourriels en utilisant <emphasis>Bogofilter</emphasis>.
+			  </para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </example>
+      <example>
+        <title>Recherche DuckDuckGo en utilisant un script externe</title>
+        <variablelist>
+          <varlistentry>
+            <term>Menu nom&nbsp;: <emphasis>Recherche/DuckDuckGo</emphasis> Ligne de Commande&nbsp;: <emphasis>|/path/to/ddg_search.pl</emphasis></term>
+            <listitem>
+              <para>
+                Effectue une recherche sur DuckDuckGo pour le texte sélectionné (<emphasis>|</emphasis>) en utilisant le script externe <emphasis><ulink url="https://www.claws-mail.org/tools.php">ddg_search.pl</ulink></emphasis>.
+			  </para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </example>
+    </blockquote>
+  </section>
+  <section id="adv_templates">
+    <title>Modèles</title>
+    <para>
+	  Les modèles sont utilisés dans la fenêtre de composition et jouent le
+	  rôle de modèles pour la rédaction des courriels. Les modèles peut
+	  contenir des parties de textes statiques et d'autres dynamiques tels
+	  que le nom de l'auteur original (Bonjour %N, ...), la date, etc.
+	  Lorsque vous appliquez un modèle, les champs dynamiques sont remplacés
+	  par leurs valeurs. Vous pouvez configurer les modèles via le menu
+	  <quote>Outils</quote>.
+    </para>
+    <para>
+	  L'utilisation d'un modèle se fait soit par insertion, soit par
+	  remplacement. La différence se situe au niveau du corps de message.
+	  <quote>Remplacer</quote> substituera le corps de message défini dans
+	  le modèle à celui du message en cours de composition, l'effaçant si ce
+	  premier est vide. <quote>Insérer</quote> insérera le corps de message
+	  du modèle, s'il est défini, à la position actuelle du curseur dans la
+	  fenêtre de composition.
+    </para>
+    <para>
+	  Que vous choisissiez d'<quote>Insérer</quote> ou de <quote>Remplacer</quote>,
+	  tout champs À, Cc ou Cci défini dans le modèle sera ajouté à ceux
+	  existant dans la fenêtre de composition. Si le sujet est défini dans
+	  le modèle, il remplacera celui de la fenêtre de composition.
+    </para>
+    <para>
+	  Les symboles peuvent être utilisés partout dans les modèles, ils seront
+	  remplacés par leur valeur dynamique respective du moment où cela est
+	  possible, sinon, aucune valeur ne sera insérée. L'utilisation de symboles
+	  est plus souvent pertinente dans le cas d'une réponse ou d'un transfert,
+	  le cas échéant, la plupart des valeurs de symboles seront non définies.
+	  Il n'y a toutefois pas de restriction dans l'emploi des symboles dans
+	  les modèles, même s'il peut sembler généralement peu pertinent d'insérer
+	  le corps de texte du message d'origine (%M ou %Q) dans un en-tête.
+    </para>
+    <para>
+	  Quand un modèle est utilisé, le corps de message est traité en premier,
+	  viennent ensuite les champs À, Cc, Cci puis Sujet.
+    </para>
+    <para>
+	  Plus d'informations et des exemples d'utilisation sont disponibles
+	  dans la FAQ du site de Claws Mail 
+	  <ulink url="https://www.claws-mail.org/faq/">www.claws-mail.org/faq/</ulink>.
+    </para>
+  </section>
+  <section id="adv_processing">
+    <title>Traitements</title>
+    <para>
+	  Les règles de traitement sont identiques aux règles de filtrage à l'exception
+	  qu'elles sont appliquées lorsque vous entrez dans un dossier ou lorsque vous
+	  les exécutez manuellement à partir du menu contextuel du dossier. Vous pouvez les
+	  utiliser pour déplacer vos anciens messages dans un dossier d'archives ou pour
+	  distribuer vos messages. Vous pouvez attribuer à chaque dossier ses règles de
+	  traitement en faisant un clic droit dessus.
+    </para>
+    <para>
+      Les règles de traitement sont accompagnées de règles de Pré-traitement et de
+	  Post-traitement. Comme les règles de traitement elles ne s'appliquent qu'à
+	  l'ouverture d'un dossier ou lors de l'exécution manuelle à partir du menu
+	  contextuel du dossier, mais comme les règles de filtrage elles sont communes
+	  à tous les dossiers. Vous pouvez les configurer à partir du menu
+	  <quote>Outils</quote>. Les règles de Pré-traitement sont exécutées avant les
+	  règles de traitement spécifiques des dossiers alors que les règles de
+	  Post-traitement le sont après.
+    </para>
+  </section>
+  <section id="adv_colour_labels">
+    <title>Couleurs</title>
+    <para>
+	  Les couleurs peuvent être utilisées pour des messages particuliers.
+	  Pour assigner une couleur à un message, cliquez-droit sur le message dans
+	  la liste, et utilisez le menu Colorier. Il est aussi accessible via le
+	  menu Message principal.
+    </para>
+    <para>
+	  Les couleurs sont configurables, à la fois les couleurs et leurs noms
+	  peuvent être spécifiés par l'utilisateur. Elles se trouvent dans
+	  <quote>Configuration/Préférences/Affichage/Couleurs</quote>.
+    </para>
+  </section>
+  <section id="adv_tags">
+    <title>Labels</title>
+    <para>
+	  Les labels sont de courtes "notes" qui peuvent être adjointes à des
+	  messages. Ils sont utiles pour classer les messages avec vos propres
+	  mots. Ces labels peuvent être utilisés plus tard pour rechercher des
+	  courriels avec la recherche rapide, ou bien pour les gérer avec des
+	  règles de filtrage ou traitement, par exemple.
+    </para>
+    <para>
+	  Les messages avec labels ont leurs labels affichés sur fond jaune clair
+	  dans la vue du message. Cette ligne montre tous les labels associés au
+	  message. Vous pouvez aussi ajouter la colonne Labels dans la liste de
+	  messages, de manière à les voir sans avoir à ouvrir le message.
+    </para>
+    <para>
+	  Les labels peuvent être mis et enlevés par le menu contextuel dans la 
+	  liste des messages, ou bien dans le menu Message principal. Une fenêtre
+	  avec les labels existants apparaît pour vous permettre de choisir les
+	  labels à appliquer ou enlever (et à en créer).
+    </para>
+    <para>
+	  Une fois que des labels existent, vous pouvez utiliser le menu pour (dé)cocher
+	  directement le(s) tags à ajouter ou enlever. Une sélection de plusieurs
+	  messages est possible, même si leurs labels diffèrent.
+    </para>
+  </section>
+  <section id="adv_ml_support">
+    <title>Support des listes de diffusion</title>
+    <para>
+	  Claws Mail propose l'utilisation de fonctions fournies par les listes
+	  de diffusion via le menu <quote>Message/Liste de diffusion/</quote>.
+	  Quand un message en provenance d'une liste de diffusion est sélectionné,
+	  ce menu vous permet d'envoyer un
+	  message à la liste, de contacter l'administrateur de la liste afin de
+	  s'inscrire, s'en désinscrire, obtenir de
+	  l'aide mais aussi consulter les archives&nbsp;; soit en ouvrant une
+	  nouvelle fenêtre de composition, soit en
+	  ouvrant un lien avec votre navigateur Internet.
+    </para>
+  </section>
+  <section id="adv_plugins">
+    <title>Modules</title>
+    <para>
+	  Les modules permettent l'extension des capacités de Claws Mail. Par
+	  exemple, imaginez que vous voulez stocker vos messages dans une base
+	  de données <acronym>SQL</acronym> distante. Dans la plupart des
+	  programmes de messagerie ceci est tout simplement impossible sans un
+	  travail de réécriture interne de ces programmes. Avec Claws Mail vous
+	  pouvez simplement écrire votre module qui effectuera cette tâche.
+    </para>
+    <para>
+	  Il s'agit juste d'un exemple des possibilités offertes. Un grand
+	  nombre de modules développés pour Claws Mail existent déjà et d'autres
+	  sont à venir. Le chapitre <link linkend="ch_plugins">Étendre Claws
+	  Mail</link> donne des détails sur ces derniers.
+    </para>
+  </section>
+  <section id="deploying">
+    <title>Déployer Claws Mail</title>
+    <para>
+	L'assistant de configuration initial essaye de deviner les différents
+	champs en récupérant des informations du système, telles que le nom de
+	l'utilisateur, le nom de domaine, et d'autres. Comme il orienté vers un
+	usage générique, il peut se tromper, et les valeurs par défaut doivent
+	être corrigées. Toutefois, cet assistant est configurable, dans le sens
+	où vous pouvez lui fournir des indications pour aider le déploiement sur
+	un grand nombre d'utilisateurs et/ou de machines grâce à un outil de
+	réplication.
+    </para>
+    <para>
+	La première partie consiste à créer un modèle de configuration de
+	l'assistant, et de régler les divers paramètres d'une nouvelle installation.
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Commencez avec un utilisateur qui n'a pas de répertoire
+          ~/.claws-mail, dans l'idéal un nouvel utilisateur.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Démarrez Claws Mail et passez l'assistant de configuration.
+          Les valeurs que vous fournissez ne seront pas utiles, donc vous pouvez
+          cliquer sur Suivant-Suivant-Enregistrer.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+	      Une fois que l'assistant a terminé, la fenêtre principale s'ouvre. Vous
+	      pouvez maintenant configurer les différentes options comme désiré. Vous
+	      pouvez charger des modules, ajouter des contacts ou des serveurs LDAP au
+	      carnet d'adresses, créer des règles de filtrage, etc.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Si nécessaire, et si Claws Mail sera utilisé avec une boîte
+          aux lettres MH, vous pouvez créer des sous-dossiers.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Maintenant, quittez Claws Mail.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+	      À présent, éditez le fichier modèle de l'assistant, créé dans
+	      ~/.claws-mail/accountrc.tmpl. Dans ce fichier, vous verrez différentes
+	      variables, correspondant aux champs de l'assistant. Vous pouvez en laisser
+	      commentées, auquel cas la valeur par défaut sera utilisée, ou spécifier
+	      des valeurs ou variables. Tous les champs ne peuvent pas contenir une
+	      variable&nbsp;; par exemple, smtpauth, smtpssl et recvssl sont des
+	      booléens, soit 0 ou 1, et recvtype est une valeur de type entier. Les
+	      autres champs, comme name, email, ou recvuser, sont parsés par l'assistant
+	      et les variables qu'ils contiennent seront remplacés par des valeurs.
+	      Cela vous permettra de spécifier tout ce qui sera nécessaire sur votre
+	      site, même si vos serveurs ou logins ne sont pas courants.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Enregistrez ce fichier, et effacez ~/.claws-mail/accountrc,
+          (qui contient le faux compte que vous avez créé avec l'assistant lors de
+          la première phase) et ~/.claws-mail/folderlist.xml, (de manière à ce que
+          l'arbre de boîte aux lettres soit correctement relu). Copiez récursivement
+          le répertoire .claws-mail dans /etc/skel/&nbsp;; si les Claws Mail déployés
+          utiliseront des dossiers MH, copiez aussi le répertoire Mail dans /etc/skel.
+          chown-isez tout /etc/skel/.claws-mail et /etc/skel/Mail à root:root.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Testez&nbsp;! Créez un nouvel utilisateur, connectez-vous
+          avec cet utilisateur, et lancez Claws Mail. Si tout est bien rempli dans
+          accountrc.tmpl comme désiré, tout ce que cet utilisateur aura à remplir
+          sont ses mots de passe.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Si vous configuriez une machine master pour un déploiement
+          multi-machines, vous pouvez continuer ce processus. C'est terminé pour Claws
+          Mail&nbsp;!
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Voici les différentes variables du fichier accountrc.tmpl&nbsp;:
+    </para>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal>domain</literal>
+        </term>
+        <listitem>
+          <para>
+            Votre nom de domaine (example.com). Par défaut, ce sera déduit
+            du hostname.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>name</literal>
+        </term>
+        <listitem>
+          <para>
+            Le nom de l'utilisateur. Par défaut, ce sera déduit de
+            /etc/passwd, ce qui est souvent correct.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>email</literal>
+        </term>
+        <listitem>
+          <para>
+            L'adresse email de l'utilisateur. Par défaut, ce sera déduit
+            de $name et $domain.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>organization</literal>
+        </term>
+        <listitem>
+          <para>
+            Votre société. Par défaut, ce sera vide.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>smtpserver</literal>
+        </term>
+        <listitem>
+          <para>
+            Le serveur SMTP à utiliser. Par défaut, ce sera smtp.$domain.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>smtpauth</literal>
+        </term>
+        <listitem>
+          <para>
+            '0' or '1'. S'il faut s'authentifier sur le serveur SMTP. Par
+            défaut, ce sera '0'.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>smtpuser</literal>
+        </term>
+        <listitem>
+          <para>
+            Le login sur le serveur SMTP. Par défaut, ce sera vide
+            (même login que pour recevoir).
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>smtppass</literal>
+        </term>
+        <listitem>
+          <para>
+            Le mot de passe sur le serveur SMTP. Par défaut, ce sera
+            vide (si smtppass est vide mais pas smtpuser, le mot de passe sera demandé).
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>recvtype</literal>
+        </term>
+        <listitem>
+          <para>
+            Le type de serveur de réception. 0 pour POP3, 3 pour IMAP4, 
+            pour un fichier MBOX local. Par défaut, ce sera 0 (POP3).
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>recvserver</literal>
+        </term>
+        <listitem>
+          <para>
+            Le serveur de réception. Par défaut, ce sera pop.$domain ou
+            imap.$domain, selon $recvtype.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>recvuser</literal>
+        </term>
+        <listitem>
+          <para>
+            Le login sur le serveur de réception. Par défaut, ce sera
+          déduit de /etc/passwd.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>recvpass</literal>
+        </term>
+        <listitem>
+          <para>
+            Le mot de passe sur le serveur de réception. Par défaut, ce
+            sera vide (il sera demandé à l'utilisateur une fois par session).
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>imapdir</literal>
+        </term>
+        <listitem>
+          <para>
+            Le répertoire IMAP. Par défaut, ce sera vide, ce qui est
+            souvent correct.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>mboxfile</literal>
+        </term>
+        <listitem>
+          <para>
+            Le fichier MBOX de réception, si $recvtype est 5. Par
+            défaut, /var/mail/$LOGIN.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>mailbox</literal>
+        </term>
+        <listitem>
+          <para>
+            La boîte aux lettres MH où les messages seront enregistrés
+            (si $recvtype est 0 ou 5). Par défaut, ce sera "Mail".
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>smtpssl</literal>
+        </term>
+        <listitem>
+          <para>
+            '0' or '1'. S'il faut utiliser SSL pour envoyer les messages.
+            Par défaut, ce sera '0'.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>recvssl</literal>
+        </term>
+        <listitem>
+          <para>
+            0 or 1. S'il faut utiliser SSL pour recevoir les messages.
+            Par défaut, ce sera 0.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para>
+	  Voici les différentes variables que vous pouvez utiliser dans les champs
+	  domain, name, email, organization, smtpserver, smtpuser, smtppass, recvserver,
+	  recvuser, recvpass, imapdir, mboxfile et mailbox&nbsp;:
+    </para>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal>$DEFAULTDOMAIN</literal>
+        </term>
+        <listitem>
+          <para>
+            Le nom de domaine déduit du hostname de la machine. Souvent
+            incorrect.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>$DOMAIN</literal>
+        </term>
+        <listitem>
+          <para>
+            Le nom de domaine tel que spécifié dans la variable domain,
+            la première du fichier.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>$USERNAME</literal>
+        </term>
+        <listitem>
+          <para>
+            Le vrai nom de l'utilisateur.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>$LOGIN</literal>
+        </term>
+        <listitem>
+          <para>
+            Le login Unix de l'utilisateur.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>$NAME_MAIL</literal>
+        </term>
+        <listitem>
+          <para>
+            Le nom de l'utilisateur tel que spécifié dans la variable
+            name, en minuscules et avec les espaces remplacées par des points. "Colin
+            Leroy" devient "colin.leroy".
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>$EMAIL</literal>
+        </term>
+        <listitem>
+          <para>
+            L'adresse email telle que spécifiée dans la variable email.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para>
+      Faites attention à ne pas utiliser une variable avant de l'avoir définie.
+    </para>
+  </section>
+  <section id="adv_hidden">
+    <title>Préférences cachées</title>
+    <para>
+	  Il existe un certain nombre de préférences cachées dans Claws Mail
+	  dont certains utilisateurs, auxquels nous voulions faire plaisir, ne
+	  pouvaient pas se passer mais qui n'avaient pas leur place, selon nous,
+	  dans l'interface graphique. Vous pouvez changer les options suivantes
+	  pendant que Claws Mail ne s'exécute pas dans le fichier ~/.claws-mail/sylpheedrc.
+    </para>
+    <para>
+	  Un petit outil nommé Clawsker, écrit en Perl-GTK, permet d'éditer les options
+	  cachées de Claws Mail en passant par une interface utilisateur classique
+	  au lieu d'avoir à éditer manuellement le fichier <filename>clawsrc</filename>.
+	  Pour en savoir plus, consulter <ulink url="https://www.claws-mail.org/clawsker.php">
+	  la page dédiée à Clawsker</ulink>.
+    </para>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal>address_search_wildcard</literal>
+        </term>
+        <listitem>
+          <para>
+            La complétion par TAB des adresses dans la fenêtre de composition fonctionnera
+            avec n'importe quelle partie des adresses connues ('1') ou seulement à partir du
+            début ('0').
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>addressbook_use_editaddress_dialog</literal>
+        </term>
+        <listitem>
+          <para>
+            Utilise un dialogue pour l'édition des coordonnées
+		    des contacts. '0'&nbsp;: utilise un formulaire intégré à la fenêtre
+		    principale du carnet d'adresses. '1' (par defaut)&nbsp;: utilise un
+		    dialogue séparé.
+	      </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+	    <term>
+          <literal>bold_marked</literal>
+        </term>
+	    <listitem>
+	      <para>
+            Dans la liste des messages, les messages qui sont marqués s'affichent en gras
+            si cette option est mise à '1'. '0' (par défaut) pour afficher les messages
+            marqués avec une police de texte normale.
+	      </para>
+	    </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>bold_unread</literal>
+        </term>
+        <listitem>
+          <para>
+            Montre les messages non lus en gras dans la liste de messages.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>cache_max_mem_usage</literal>
+        </term>
+        <listitem>
+          <para>
+            Indique le maximum de mémoire à utiliser pour mettre en cache les messages (en Ko).
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>cache_min_keep_time</literal>
+        </term>
+        <listitem>
+          <para>
+            Le temps minimum pour garder un cache en
+		    mémoire, en minutes. Les caches plus récents que ce temps ne
+		    seront pas libérés, même si l'utilisation de la mémoire est
+		    trop élevée.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>compose_no_markup</literal>
+        </term>
+        <listitem>
+          <para>
+            Ne pas utiliser de gras ni d'italique dans le
+		    sélecteur de compte de la fenêtre de composition.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>default_header_color</literal>
+        </term>
+        <term>
+          <literal>default_header_bgcolor</literal>
+        </term>
+        <listitem>
+          <para>
+            Couleurs d'avant-plan et d'arrière-plan à utiliser dans les champs de saisie des en-têtes de la fenêtre de composition.
+            Les couleurs par défaut sont, respectivement, '#000000' (noir) et '#f5f6be' (jaune pâle).
+	      </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>emphasis_color</literal>
+        </term>
+        <listitem>
+          <para>
+			Couleur utilisée pour mettre en évidence l'en-tête X-Mailer
+			quand sa valeur est Claws Mail.
+		  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>enable_avatars</literal>
+        </term>
+        <listitem>
+          <para>
+            Permet de régler la capture et le rendu des
+		    avatars (entêtes Face et X-Face, si son support est compilé).
+		    '0' désactive tout, '1' n'active que la capture, '2' que le
+		    rendu et '3' active les deux.
+          </para>
+          <para>
+            Notez que des modules externes peuvent désactiver tout
+		    ou partie de ce réglage.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>enable_hscrollbar</literal>
+        </term>
+        <listitem>
+          <para>
+            Active la barre de défilement horizontale dans
+		    la liste de messages.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>enable_swap_from</literal>
+        </term>
+        <listitem>
+          <para>
+            Affiche l'adresse électronique du destinataire (précédé d'une flèche)
+		    dans la colonne <quote>De</quote> du dossier <quote>Envoyés</quote>
+            quand le message a été envoyé par vous-même.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>folder_search_wildcard</literal>
+        </term>
+        <listitem>
+          <para>
+            La recherche de dossier dans la fenêtre de
+		    sélection de dossiers fonctionnera avec n'importe quelle partie
+		    de leurs noms ('1') ou seulement à partir du début ('0').
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>folderview_vscrollbar_policy</literal>
+        </term>
+        <listitem>
+          <para>
+            Spécifie la politique de la barre de
+		    défilement verticale de la vue des dossiers.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>hide_timezone</literal>
+        </term>
+        <listitem>
+          <para>
+            Quand cette option est activée ('1'), le fuseau horaire n'est plus indiqué dans les en-têtes de date émis,
+            conformément à la section 3 de la RFC 5322. La valeur par défaut est '0'.
+	      </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>hover_timeout</literal>
+        </term>
+        <listitem>
+          <para>
+            Temps en millisecondes pendant lequel la
+		    souris doit rester sur l'arbre des dossiers afin qu'ils se
+		    déplient durant un glisser-déposer.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>live_dangerously</literal>
+        </term>
+        <listitem>
+          <para>
+            Ne pas demander confirmation avant
+			suppression définitive de messages.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>log_error_color</literal>
+        </term>
+        <term>
+          <literal>log_in_color</literal>
+        </term>
+        <term>
+          <literal>log_msg_color</literal>
+        </term>
+        <term>
+          <literal>log_out_color</literal>
+        </term>
+        <term>
+          <literal>log_warn_color</literal>
+        </term>
+        <term>
+          <literal>log_status_ok_color</literal>
+        </term>
+        <term>
+          <literal>log_status_nok_color</literal>
+        </term>
+        <term>
+          <literal>log_status_skip_color</literal>
+        </term>
+        <listitem>
+          <para>
+            Couleurs utilisées dans la fenêtre de traces.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>master_passphrase_pbkdf2_rounds</literal>
+        </term>
+        <listitem>
+          <para>
+            Nombre d'itérations à réaliser avec la fonction PBKDF2 lors du calcul de la dérivation de clef d'un nouveau mot de passe maître.
+            Cette option n'a pas d'effet sur le mot de passe maître déjà défini dans les préférences. La valeur par défaut est '50000'.
+	      </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>msgview_date_format</literal>
+        </term>
+        <listitem>
+          <para>
+	        '0' ou '1'. Utilise le même format défini par l'utilisateur pour la liste
+	        des messages dans la vue du message courant. La valeur par défaut est '0', 
+	        option désactivée.
+	  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>next_on_delete</literal>
+        </term>
+        <listitem>
+          <para>
+			'0' or '1'. Indique lequel des messages précédent ou suivant sera sélectionné après
+            la suppression, la mise en corbeille ou le déplacement du message courant.
+            Par défaut: '0', sélectionne le message précédent.
+	  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>outgoing_fallback_to_ascii</literal>
+        </term>
+        <listitem>
+          <para>
+			'0' ou '1'. Les messages envoyés seront encodés en 7bit US-ASCII si le
+			contenu le permet, ignorant l'option <quote>Jeux de caractères</quote>
+			pour l'envoi, uniquement si c'est si possible.
+			Si l'option est mise à '0', l'encodage défini par l'utilisateur sera
+			utilisé, quel que soit le contenu du message. La valeur par défaut est '1',
+			option activée.
+		  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>primary_paste_unselects</literal>
+        </term>
+        <listitem>
+          <para>
+	        '0' ou '1'. Vide la sélection primaire et repositionne le curseur
+	        lors d'un collage par clic du milieu. La valeur par défaut est '0', 
+	        option désactivée.
+	      </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><literal>qs_active_color</literal></term>
+        <term><literal>qs_active_bgcolor</literal></term>
+        <term><literal>qs_error_color</literal></term>
+        <term><literal>qs_error_bgcolor</literal></term>
+        <listitem>
+          <para>
+	        Couleurs de texte et de fond utilisées dans la zone de saisie de la
+            recherche rapide, quand celle-ci est active ou qu'il y a une erreur
+            de syntaxe.
+            Les couleurs par défaut sont, respectivement: '#000000' (noir),
+            '#f5f6be' (jaune clair), '#000000' (noir), and '#ff7070' (rouge clair).
+	      </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>qs_press_timeout</literal>
+        </term>
+        <listitem>
+          <para>
+	        Délai d'attente du mode dynamique de la recherche rapide (en ms): délai possible
+            entre 2 frappes au clavier dans la zone de saisie avant que la recherche rapide
+            ne soit automaquement lancée. Par défaut: 500 ms.
+	      </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>respect_flowed_format</literal>
+        </term>
+        <listitem>
+          <para>
+			'0' ou '1'. Tient compte du format=flowed des parties de type text/plain d'un message.
+			Par conséquence, ce type de contenu pourra comporter de longues lignes à l'affichage
+			mais liens (URLs) ne seront pas coupés sur plusieurs lignes.
+			La valeur par défaut est '0', option désactivée.
+		  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>rewrite_first_from</literal>
+        </term>
+        <listitem>
+          <para>
+			'0' or '1'. Cette option permet de contourner une limitation de certains serveurs
+            excessivement laxistes. Quand cette option est active et que le Content-Transfer-Encoding
+            est 8bit ou 7bit, dans le corps d'un message commençant par 'From ', le 'From ' deviendra
+            '=46rom ' et le Content-Transfer-Encoding sera changé en Quoted-Printable. Quand cette option
+            est inactive, aucune modification n'est faite mais il est alors possible qu'un MTA transforme
+            un 'From ' en '>From '. Consultez la RFC 4155 pour plus de détails. La valeur par défaut est
+            '1', option active.
+		  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>save_parts_readwrite</literal>
+        </term>
+        <listitem>
+          <para>
+			Les fichiers temporaires nécessaires afin d'ouvrir les pièces jointes
+			sont enregistrés avec la permission d'écriture activée.
+		  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>show_compose_margin</literal>
+        </term>
+        <listitem>
+          <para>
+	        '0' or '1'. Ajoute des marges lors de l'édition de message
+	        La valeur par défaut est '0', option désactivée.
+    	  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>show_inline_attachments</literal>
+        </term>
+        <listitem>
+          <para>
+	        '0' or '1'. Montrer les pièces jointes "inline" dans la liste des pièces jointes.
+	        La valeur par défaut est '1', option activée.
+    	  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>skip_ssl_cert_check</literal>
+        </term>
+        <listitem>
+          <para>
+            Permet de ne pas faire la vérification des
+		    certificats SSL
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>statusbar_update_step</literal>
+        </term>
+        <listitem>
+          <para>
+            Étapes de progression lors de la mise à jour
+		    dans les barres de progression.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>stripes_color_offset</literal>
+        </term>
+        <listitem>
+          <para>
+			Valeur de contraste utilisé pour alterner les couleurs entre chaque
+			ligne dans les composants de type GtkTreeView. Une valeur faible
+			indique un contraste faible et donc peu de différence de couleur entre
+			les lignes.
+		  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><literal>tags_color</literal></term>
+        <term><literal>tags_bgcolor</literal></term>
+        <listitem>
+          <para>
+            Couleurs de texte et de fond utilisées pour l'affichage des labels. Les valeurs
+            par défaut sont, respectivement: '#000000' (noir) et '#f5f6be' (jaune clair).
+		  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>textview_cursor_visible</literal>
+        </term>
+        <listitem>
+          <para>
+            Affiche un curseur dans la vue du message.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>thread_by_subject_max_age</literal>
+        </term>
+        <listitem>
+          <para>
+            Nombre de jours maximal pour l'inclusion
+		    d'un message dans un fil de discussion lorsque cette option
+		    est utilisée.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>toolbar_detachable</literal>
+        </term>
+        <listitem>
+          <para>
+            Cache les poignées des barres d'outils
+		    détachables, qui ne le sont plus par la suite.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>type_any_header</literal>
+        </term>
+        <listitem>
+          <para>
+			'0' ou '1'. Quand la valeur est '1', permet de saisir n'importe quelle valeur dans
+            les zones de saisie des en-têtes d'une fenêtre de composition de message. Par défaut: '0',
+            seules les valeurs d'en-têtes disponibles dans la liste déroulante sont possibles.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>two_line_vertical</literal>
+        </term>
+        <listitem>
+          <para>
+			Chaque message occupe deux lignes (au lieu d'un message
+			par ligne) quand le mode trois-colonnes est utilisé.
+		  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>unsafe_ssl_certs</literal>
+        </term>
+        <listitem>
+          <para>
+			Fait en sorte que Claws Mail accepte de se souvenir de plusieurs
+			certificats sécurisés (SSL) pour un server/port donné. Cette option
+			est désactivée par défaut.
+		  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>use_networkmanager</literal>
+        </term>
+        <listitem>
+          <para>
+			Prend en compte le NetworkManager (Gestionnaire Réseau) afin de passer
+			en mode déconnecté (hors ligne) automatiquement. Cette option est activée
+			par défaut.
+		  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>use_stripes_everywhere</literal>
+        </term>
+        <listitem>
+          <para>
+            Active les lignes alternées dans les GtkTreeViews
+		    (dialogues de filtrage, des traitements, etc.).
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>use_stripes_in_summaries</literal>
+        </term>
+        <listitem>
+          <para>
+            Active les lignes alternées dans les GtkTreeViews
+		    de la fenêtre principale (liste des dossiers et liste des messages).
+		    L'emploi de cette option (valeur '0') n'a de sens que lorsque l'option
+		    cachée use_stripes_everywhere est activée (valeur '1').
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>utf8_instead_of_locale_for_broken_mail</literal>
+        </term>
+        <listitem>
+          <para>
+            Utilise l'encodage UTF-8 encoding pour les courriels
+		    cassés à la place de la localisation courante.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>imap_scan_tree_recurs_limit</literal>
+        </term>
+        <listitem>
+          <para>
+            Limite de profondeur lors de la reconstruction de
+            de l'arborescence des dossiers IMAP.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>warn_dnd</literal>
+        </term>
+        <listitem>
+          <para>
+            Affiche une boîte de dialogue de confirmation
+		    lors d'un glissé-déposé d'un dossier sur un autre.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>warn_sending_many_recipients_num</literal>
+        </term>
+        <listitem>
+          <para>
+	        Demander confirmation à l'utilisateur, lorsque l'envoi d'un message
+            se fait à un nombre de destinataires supérieur à la valeur définie.
+            Une valeur de '0' désactive cette demande de confirmation: l'envoi sera
+            fait quelque soit le nombre de destinataires.
+    	  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <literal>zero_replacement_char</literal>
+        </term>
+        <listitem>
+          <para>
+	        Caractère à afficher dans la liste des dossiers quand un dossier ne
+	        contient pas de message. Par défault, '0'.
+    	  </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section id="adv_autofaces">
+    <title>Autofaces</title>
+    <para>
+	  Il est possible de créer des en-têtes Face et X-Face directement
+	  à partir de fichiers, soit avec un fichier par en-tête de façon
+	  globale, soit un pour chaque compte. Ces fichiers doivent être
+	  placés dans le répertoire <filename>~/.claws-mail/autofaces/</filename>.
+    </para>
+    <para>
+	  Les fichiers éventuels contenant les valeurs pour les en-têtes Face ou X-Face
+	  doivent être nommés ainsi&nbsp;: <filename>face</filename> et/ou
+	  <filename>xface</filename> pour qu'ils soient pris en compte de façon
+	  globale, ou <filename>face.</filename><emphasis>nomducompte</emphasis>
+	  et/ou <filename>xface.</filename><emphasis>nomducompte</emphasis>
+	  pour qu'ils soient spécifiques à un compte en particulier
+	  (<emphasis>nomducompte</emphasis>).
+    </para>
+    <para>
+      Si le nom du compte contient des espaces ou des caractères non supportés par le
+	  système de fichier où il est stocké, il doivent être remplacés par un <quote>_</quote>.
+	  Par exemple, si votre compte est nommé <quote>&lt;Mon Compte&gt;</quote>, le nom d'un
+	  éventuel fichier X-Face associé à ce compte sera
+	  <filename>~/.claws-mail/autofaces/xface._mon_compte_</filename>.
+	  Attention, cette fonctionnalité nécessite que le contenu des fichier face ou xface
+	  soit correct. Assurez-vous aussi que les en-têtes Face et X-Face ne sont pas définis
+	  plusieurs fois dans les options des comptes et les fichiers AutoFaces (la plupart
+	  des clients de messagerie, Claws Mail y compris, ignorent les en-têtes redondants et
+	  n'affichent que le dernier trouvé).
+    </para>
+  </section>
+</section>

@@ -1,15 +1,529 @@
-Source: template-repository
-Section: unknown
+Source: claws-mail
+Section: mail
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Ricardo Mones <mones@debian.org>
+Build-Depends: debhelper-compat (= 13), libcompfaceg1-dev, libsm-dev,
+ libgtk-3-dev, nettle-dev,
+ libgnutls28-dev, libldap2-dev,
+ libnm-dev [linux-any], libdbus-glib-1-dev,
+ flex, bison, gettext, libltdl-dev, libtool,
+ libenchant-2-dev, libreadline6-dev,
+ libetpan-dev,
+ librsvg2-dev,
+ libarchive-dev,
+ libnotify-dev, libcanberra-gtk3-dev,
+ libpoppler-glib-dev,
+ libperl-dev, perl,
+ libgpgme-dev,
+ libpython3-dev, python-gi-dev,
+ libcurl4-gnutls-dev, libexpat-dev, libkrb5-dev,
+ libical-dev,
+ libytnef-dev,
+ libgumbo-dev,
+ libwebkit2gtk-4.1-dev
+Build-Depends-Indep:
+ docbook-utils,
+ docbook-xml,
+ docbook-xsl,
+ libsaxon-java,
+ xsltproc,
+Standards-Version: 4.6.2
+Homepage: https://www.claws-mail.org
+Vcs-Git: https://salsa.debian.org/claws-mail-team/claws-mail.git
+Vcs-Browser: https://salsa.debian.org/claws-mail-team/claws-mail
+Rules-Requires-Root: no
 
-Package: template-repository
+Package: claws-mail
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Multi-Arch: foreign
+Depends: ${shlibs:Depends}, ${misc:Depends}, xdg-utils
+Recommends: claws-mail-i18n, xfonts-100dpi | xfonts-75dpi |
+ xfonts-100dpi-transcoded | xfonts-75dpi-transcoded,
+ aspell-en | aspell-dictionary
+Suggests: claws-mail-doc (= ${source:Version}), www-browser,
+ gedit | kwrite | mousepad | nedit, claws-mail-tools
+Provides: mail-reader, news-reader, imap-client
+Description: Fast, lightweight and user-friendly GTK based email client
+ Claws Mail is a powerful and full-featured mail client formerly called
+ Sylpheed-Claws. It is also extensible using loadable plugins, which can
+ provide support for additional features, like other storage formats,
+ feed reader, calendar management, mail filtering, etc.
+
+Package: libclaws-mail-dev
+Architecture: any
+Multi-Arch: same
+Section: devel
+Depends: ${misc:Depends}, libssl-dev, libenchant-2-dev
+Description: Development files for Claws Mail plugins
+ This package provides the development headers needed to build
+ plugins for Claws Mail client.
+ Plugins are loadable modules which extend Claws Mail capabilities.
+
+Package: claws-mail-plugins
+Architecture: all
+Section: metapackages
+Depends: ${misc:Depends}, claws-mail-spamassassin,
+ claws-mail-pgpmime, claws-mail-pgpinline,
+ claws-mail-bogofilter, claws-mail-smime-plugin
+Enhances: claws-mail
+Suggests: claws-mail-extra-plugins
+Description: Installs plugins for the Claws Mail mailer
+ This is a metapackage to install core plugin packages provided
+ by the Claws Mail sources. Historically these were the only
+ plugins provided along with Claws Mail itself.
+ .
+ See the claws-mail-extra-plugins package for more plugins.
+
+Package: claws-mail-spamassassin
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, claws-mail (= ${binary:Version}),
+ spamassassin
+Description: SpamAssassin plugin for Claws Mail
+ This plugin for Claws Mail will filter all received email through
+ a SpamAssassin daemon to decide if it is spam or not and process them
+ accordingly.
+
+Package: claws-mail-pgpmime
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, claws-mail (= ${binary:Version})
+Recommends: pinentry-gtk2 | pinentry-x11
+Provides: claws-mail-pgpcore
+Suggests: gpg-agent
+Description: PGP/MIME plugin for Claws Mail
+ This plugin for Claws Mail verifies signatures and decrypts
+ messages. It does also provide the PGP/core plugin for use with other
+ privacy plugins, required also for signing and encrypting mails.
+
+Package: claws-mail-pgpinline
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, claws-mail (= ${binary:Version}),
+ claws-mail-pgpcore
+Description: PGP/inline plugin for Claws Mail
+ This plugin for Claws Mail verifies signatures of digitally signed
+ messages, and decrypts encrypted messages. It's also required
+ to send signed and encrypted messages using inline method (deprecated).
+
+Package: claws-mail-smime-plugin
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, claws-mail (= ${binary:Version}),
+ claws-mail-pgpcore, gpgsm
+Description: S/MIME signature/encryption handling for Claws Mail
+ This plugin handles S/MIME signed and/or encrypted mails in Claws Mail.
+ You can decrypt mails, verify signatures or sign and encrypt your own mails.
+ .
+ S/MIME is also known as PKCS#7 and uses the application/pkcs7-signature
+ or application/x-pkcs7-signature MIME subtype within messages.
+ .
+ Receiving an attachment called smime.p7m is also sign of this kind of
+ signature usage.
+
+Package: claws-mail-bogofilter
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, claws-mail (= ${binary:Version}),
+ bogofilter
+Description: Bogofilter plugin for Claws Mail
+ This plugin for Claws Mail will scan received mail using Bogofilter
+ to decide if it is spam or not. Users can also teach Bogofilter
+ to recognise spam or ham using the corresponding menu entries.
+
+Package: claws-mail-i18n
+Section: localization
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, claws-mail (>= ${source:Version})
+Description: Locale data for Claws Mail (i18n support)
+ This package provides support for additional languages to the
+ Claws Mail mailer.
+ Currently available locales are:
+  ca (Catalan)                  cs (Czech)
+  da (Danish)                   de (German)
+  en_GB (British English)       es (Spanish)
+  fi (Finnish)                  fr (French)
+  he (Hebrew)                   hu (Hungarian)
+  id_ID (Indonesian)            it (Italian)
+  ja (Japanese)                 nb (Norwegian Bokmål)
+  nl (Dutch)                    pt_BR (Brazilian Portuguese)
+  pl (Polish)                   ro (Romanian)
+  ru (Russian)                  sk (Slovak)
+  sv (Swedish)                  tr (Turkish)
+  zh_TW (Traditional Chinese)
+
+Package: claws-mail-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Suggests: claws-mail (= ${binary:Version})
+Description: User documentation for Claws Mail mailer
+ This package provides the Claws Mail user's manual. The document is
+ available in text and HTML formats for screen reading, and also PostScript
+ and PDF formats for printing.
+
+Package: claws-mail-tools
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, claws-mail (>= ${source:Version}), perl, python3
+Description: Helper and utility scripts for Claws Mail mailer
+ Several scripts in a variety of languages which provide ready to use
+ solutions to common problems found by Claws Mail users.
+ E.g.: mailboxes migration, addressbooks conversion, etc.
+ .
+ See README files for further details about included scripts.
+
+Package: claws-mail-extra-plugins
+Architecture: all
+Section: metapackages
+Depends: ${misc:Depends},
+ claws-mail-acpi-notifier,
+ claws-mail-address-keeper,
+ claws-mail-archiver-plugin,
+ claws-mail-attach-remover,
+ claws-mail-attach-warner,
+ claws-mail-bsfilter-plugin,
+ claws-mail-clamd-plugin,
+ claws-mail-dillo-viewer,
+ claws-mail-fancy-plugin,
+ claws-mail-feeds-reader,
+ claws-mail-fetchinfo-plugin,
+ claws-mail-keyword-warner,
+ claws-mail-libravatar,
+ claws-mail-litehtml-viewer,
+ claws-mail-mailmbox-plugin,
+ claws-mail-managesieve,
+ claws-mail-multi-notifier,
+ claws-mail-newmail-plugin,
+ claws-mail-perl-filter,
+ claws-mail-pdf-viewer,
+ claws-mail-python-plugin,
+ claws-mail-spam-report,
+ claws-mail-tnef-parser,
+ claws-mail-vcalendar-plugin
+Enhances: claws-mail
+Description: Extra plugins collection for Claws Mail
+ This is a metapackage for installing all extra plugins packages
+ available from the upstream site for the Claws Mail mailer.
+ .
+ Historically these were plugins shipped in a separate tarball
+ but nowadays they are included in Claws Mail sources.
+ .
+ See each individual package description for further details.
+
+Package: claws-mail-acpi-notifier
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: Laptop's Mail LED control for Claws Mail
+ This plugin for the Claws Mail mailer enables notification
+ of new mail using the mail LED available on some portable computer
+ models from Acer, ASUS, Fujitsu and IBM makers.
+
+Package: claws-mail-address-keeper
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: Address keeper plugin for Claws Mail
+ This plugin allows saving outgoing addresses to a designated folder
+ in the address book. Addresses are saved only if not found in the
+ address book to avoid unwanted duplicates.
+ .
+ Selecting which headers are scanned for keeping addresses is also
+ supported, one or several of 'To', 'Cc' and/or 'Bcc'.
+
+Package: claws-mail-archiver-plugin
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Enhances: claws-mail-vcalendar-plugin
+Description: Archiver plugin for Claws Mail
+ This plugin for Claws Mail allows archiving of account's folders (IMAP,
+ POP or local) as well as vcalendar folders.
+ .
+ Several formats are supported (TAR, PAX, SHAR and CPIO) with optional
+ compression methods (GZIP, BZIP2).
+
+Package: claws-mail-attach-remover
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: Mail attachment remover for Claws Mail
+ This plugin for the Claws Mail mailer provides ways to remove unwanted
+ attachments from received mails.
+ .
+ All attachments are removed from the selected mails when more than one
+ message is selected.
+ .
+ You can also remove individual attachments from messages.
+
+Package: claws-mail-attach-warner
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: Missing attachment warnings for Claws Mail
+ This plugin for Claws Mail warns the user with a popup window if some
+ reference to an attachment is found in the composed mail text but no
+ file is attached.
+
+Package: claws-mail-bsfilter-plugin
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version}) , bsfilter
+Description: Spam filtering using bsfilter for Claws Mail
+ This plugin for Claws Mail allows filtering of spam messages using the
+ Bayesian filtering program bsfilter.
+ .
+ The bsfilter can be trained with spam and ham messages to improve its
+ spam detection capabilities.
+
+Package: claws-mail-clamd-plugin
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Recommends: clamav
+Description: ClamAV socket-based plugin for Claws Mail
+ This plugin uses Clam AntiVirus to scan all messages that are
+ received from an IMAP, POP or local account.
+ .
+ When a message attachment is found to contain a virus it can be
+ deleted or saved in a specially designated folder.
+ .
+ Due to licensing issues this plugin does not link against any
+ libraries from ClamAV. The plugin therefore requires a ClamAV
+ daemon running, either on localhost or somewhere else, for the
+ plugin to access it via a Unix or TCP socket.
+
+Package: claws-mail-dillo-viewer
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version}), dillo
+Description: HTML viewer plugin for Claws Mail using Dillo
+ This is an HTML viewer plugin that uses the Dillo browser to render the
+ HTML message parts in the Claws Mail message view window.
+ .
+ Additionally allows for:
+ • Safe browsing to avoid problems with malicious HTML mails.
+ • Fetching and displaying remote images.
+ • Browsing the web from within of Claws Mail.
+
+Package: claws-mail-fancy-plugin
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Replaces: claws-mail-fancy-plugin (<< 3.15.0-2)
+Suggests: html2ps
+Description: HTML mail viewer using GTK WebKit
+ This plugin for Claws Mail allows rendering of HTML email messages
+ in the message window.
+ .
+ It uses the GTK 3 port of the WebKit library to render HTML.
+ .
+ Supports printing HTML mails when html2ps package is installed.
+
+Package: claws-mail-feeds-reader
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: Feeds (RSS/Atom/RDF) reader plugin for Claws Mail
+ The RSSyl plugin provides feeds reading capability for Claws Mail mailer.
+ .
+ Supported feed formats are:
+ • RSS 1.0 (Resource Description Framework)
+ • RSS 2.0
+ • Atom (RFC 4287)
+ .
+ Has also per-feed customization features, transforming Claws Mail into
+ a powerful lightweight feeds reader.
+
+Package: claws-mail-fetchinfo-plugin
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: Add X-FETCH headers plugin for Claws Mail
+ This plugin for the Claws Mail mailer enables adding useful extra headers
+ to the received mails with information like the receiving account or the
+ server the mail was downloaded from. These extra headers can be used for
+ filtering and/or processing messages more appropriately.
+
+Package: claws-mail-keyword-warner
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: Warning on message keywords for Claws Mail
+ This plugin for Claws Mail warns the user with a popup window if some
+ predefined keyword is found in the composed mail text.
+
+Package: claws-mail-libravatar
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: Display sender avatar from a libravatar server
+ This plugin for the Claws Mail mailer allows retrieval of profile
+ images from libravatar servers, either federated servers (running
+ on sender's domain) or the main libravatar.org server.
+ .
+ Currently supports all default missing icon modes on libravatar.org
+ service, and makes extensive use of disk caching to minimize the
+ number of network requests.
+ .
+ Nevertheless, it may add several network requests per message, so
+ if you're on a high latency network you may experience some delay
+ displaying messages.
+
+Package: claws-mail-litehtml-viewer
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: HTML viewer plugin using litehtml library
+ This is an HTML viewer plugin that uses the litehtml to render the
+ HTML message parts in the Claws Mail message view window.
+ .
+ Users of old Fancy plugin may find this viewer more similar than
+ other HTML viewer plugins, though you may miss some feature.
+
+Package: claws-mail-newmail-plugin
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: New mail logger plugin for Claws Mail
+ This plugin for the Claws Mail mailer writes a summary of new messages'
+ headers to a log file.
+ .
+ This summary is written on arrival of new mail and after sorting it.
+
+Package: claws-mail-mailmbox-plugin
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: mbox format mailboxes handler for Claws Mail
+ The mailMBOX plugin for Claws Mail provides the ability of handling
+ existing mbox format files using the libetpan library.
+ .
+ Once added, these files appear like mailer's native mail folders.
+
+Package: claws-mail-managesieve
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Suggests: cyrus-imapd-2.2 | dovecot-imapd
+Description: manage Sieve filters with Claws Mail
+ This plugin for Claws Mail mailer provides an interface for
+ managing filtering scripts on Sieve-compliant mail servers.
+ .
+ It allows creating new, editing and removing existing server
+ scripts. Syntax checking is also available, but knowledge of
+ filtering language is required.
+
+Package: claws-mail-multi-notifier
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Recommends: notification-daemon
+Suggests: libnotify-bin, xosd-bin, lcdproc
+Description: Various new mail notifiers for Claws Mail
+ This plugin for Claws Mail mailer collects several ways of notification
+ of new (and possibly unread) mail to the user.
+ .
+ Currently the following methods are implemented:
+  - a banner
+  - a popup window
+  - a custom command
+  - a message to a LCD daemon
+  - a system tray icon
+  - an indicator
+
+Package: claws-mail-tnef-parser
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: TNEF attachment handler for Claws Mail
+ This plugin for Claws Mail allows reading of application/ms-tnef
+ attachments. These attachments usually come from Microsoft mailers
+ with the name 'winmail.dat'.
+
+Package: claws-mail-perl-filter
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: Message filtering plugin using perl for Claws Mail
+ This plugin enables filtering of Claws Mail messages using perl
+ regular expressions and, in fact, giving all the perl features and
+ power to the filtering engine.
+ .
+ A tool for converting the current filter set of the user into a
+ equivalent perl script suitable for the plugin is also provided.
+
+Package: claws-mail-pdf-viewer
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Recommends: ghostscript
+Description: PDF and PostScript attachment viewer for Claws Mail
+ This plugin allows Claws Mail to view PDF and PostScript files
+ attached to mails in the message window.
+ .
+ PostScript requires 'gs' tool to be available for conversion,
+ otherwise plugin will only be able to display PDF attachments.
+
+Package: claws-mail-python-plugin
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version}), python3-all-dev, python3-gi
+Replaces: claws-mail-python-plugin (<< 3.17.4-2)
+Description: Python plugin and console for Claws Mail
+ This plugin provides Python scripting access to Claws Mail.
+ .
+ It features a console for testing and help about available
+ functions. Scripts can be saved for later usage as new menu
+ items or to be automatically loaded on startup.
+
+Package: claws-mail-spam-report
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: Spam reporting plugin for Claws Mail
+ This plugin for Claws Mail allows sending reports about spam
+ messages received to spam harvesting sites online.
+ .
+ Currently are supported the signal-spam.fr and spamcop.net
+ sites and also the Debian lists spam nomination system.
+
+Package: claws-mail-vcalendar-plugin
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ claws-mail (= ${binary:Version})
+Description: vCalendar message handling plugin for Claws Mail
+ The vCalendar plugin for Claws Mail provides vCalendar message
+ handling (the meeting subset of the vCalendar format), displaying
+ such mails in a nice format, letting you create and send meetings,
+ and creating a virtual folder with the meetings you sent or received.
+ .
+ The functionality is similar to the one provided by Evolution for
+ that mails.

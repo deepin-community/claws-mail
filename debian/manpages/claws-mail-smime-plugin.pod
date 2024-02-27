@@ -1,0 +1,65 @@
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+claws-mail-smime-plugin - handle S/MIME signed and encrypted mails
+
+=head1 DESCRIPTION
+
+This manual page documents briefly the B<claws-mail-smime-plugin>
+package.
+
+This manual page was written for the Debian™ distribution because the
+original program does not have a manual page.
+
+B<claws-mail-smime-plugin> is a plugin (loadable module) for the I<Claws
+Mail> mailer.
+
+This plugin allows decrypting mails, verifying signatures and sign or
+encrypt your own mails using S/MIME standard (RFC 8551).
+
+=head1 USAGE
+
+Before using a plugin you must instruct I<Claws Mail> to load it on
+startup.
+
+For this you must go “Configuration” menu on main window toolbar, open
+“Plugins...”  dialog, click on the “Load plugin...”  button and select
+the plugin file, named B<smime.so>, and press the “Open” button.
+
+=head1 SEE ALSO
+
+B<claws-mail>(1),
+B<claws-mail-extra-plugins>(7).
+
+=head1 AUTHORS
+
+=over
+
+=item Colin Leroy <colin@colino.net>
+
+Wrote the B<claws-mail-smime-plugin> plugin.
+
+=item Ricardo Mones <mones@debian.org>
+
+Wrote this manpage for the Debian™ system.
+
+=back
+
+=head1 COPYRIGHT
+
+Copyright © 2008-2020 Ricardo Mones
+
+This manual page was written for the Debian system (but may be used by
+others).
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License, Version 3 or (at your
+option) any later version published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public License
+can be found in F</usr/share/common-licenses/GPL>.
+
+=cut

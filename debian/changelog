@@ -1,5 +1,1673 @@
-template-repository (1.0-1) unstable; urgency=medium
+claws-mail (4.2.0-2) unstable; urgency=medium
 
-  * Initial release
+  [ Jeremy Bícha ]
+  * Build with webkit2gtk 4.1 instead of 4.0
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+  [ Ricardo Mones ]
+  * Update claws-mail-pgpmime suggested package.
+    Thanks to Andreas Metzler (Closes: #1064117)
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 18 Feb 2024 11:47:14 +0100
+
+claws-mail (4.2.0-1) unstable; urgency=medium
+
+  * New upstream version 4.2.0
+  * Remove the gdata-plugin: dropped from release
+  * Add lintian override for Fancy extension
+  * Remove patch already in this release
+  * Update web_extensions path for Fancy plugin
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 22 Nov 2023 23:58:37 +0100
+
+claws-mail (4.1.1-4) unstable; urgency=medium
+
+  * Fix typo in changelog (thanks lintian!)
+  * Remove obsolete news file
+  * Set Standards-Version to 4.6.2 with no other changes
+  * Update copyright year ranges
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 01 Aug 2023 18:22:42 +0200
+
+claws-mail (4.1.1-3) unstable; urgency=high
+
+  [ David (Plasma) Paul ]
+  * Move documentation Build-Depends to Build-Depends-Indep (Closes: #1036898)
+
+  [ Ricardo Mones ]
+  * Revert "Remove bsfilter plugin for testing migration"
+  * Add upstream patch to fix build with gcc 13 (Closes: #1037605)
+  * Raised urgency because of RC bug
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 15 Jul 2023 15:41:11 +0200
+
+claws-mail (4.1.1-2) unstable; urgency=medium
+
+  [ Vagrant Cascadian ]
+  * debian/rules: Use UTC for manpage date.
+
+  [ Ricardo Mones ]
+  * Remove bsfilter plugin for testing migration
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 15 Dec 2022 18:06:46 +0100
+
+claws-mail (4.1.1-1) unstable; urgency=medium
+
+  [ Andreas Rönnquist ]
+  * Fix typo in manpage for keyword-warner
+
+  [ Ricardo Mones ]
+  * New upstream version 4.1.1
+  * Remove patches already in this upstream release
+  * Install new fancywebextension into fancy plugin
+  * Use same version for all manpages
+  * Use a fixed date for all manpages
+  * Set Stantards-Version to 4.6.1, no other changes
+  * Remove obsolete pattern from copyright
+  * Adjust lintian override
+  * Remove lintian override not emitted anymore
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 31 Oct 2022 20:29:37 +0100
+
+claws-mail (4.1.0-2) unstable; urgency=high
+
+  [ Andreas Rönnquist ]
+  * Fix typo mial/mail for claws-mail-keyword-warner (Closes: #1010232)
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster
+
+  [ Ricardo Mones ]
+  * Fix override again
+  * Add lintian overrides for source package
+  * Raise urgency because of RC bug
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 14 May 2022 16:51:11 +0200
+
+claws-mail (4.1.0-1) unstable; urgency=medium
+
+  * New upstream version 4.1.0
+  * Add new keyword-warner plugin
+  * Switch libltdl3-dev to libltdl-dev (Closes: #1008765)
+  * Update patch to cope with upstream changes
+  * Add patch to fix FTBFS because of perl changes (thanks gusnan!)
+  * Add upstream fix for AddressKeeper plugin
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 14 Apr 2022 23:00:48 +0200
+
+claws-mail (4.0.0-3) unstable; urgency=medium
+
+  * Update description and manpage header
+  * Revert "Remove claws-mail-python-plugin" (Closes: #1004976)
+  * Recover claws-mail-fancy-plugin for GTK 3 (Closes: #1007259)
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 21 Mar 2022 01:03:39 +0100
+
+claws-mail (4.0.0-2) unstable; urgency=medium
+
+  * Upload upstream version 4.0.0 to unstable
+  * Fix lintian override
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 02 Feb 2022 23:39:29 +0100
+
+claws-mail (4.0.0-1) experimental; urgency=medium
+
+  * New upstream version 4.0.0
+  * Update Build-Depends for GTK+3 (Closes: #967293)
+  * Update Standards-Version to 4.6.0, no other changes
+  * Removed unused paragraph and update dates in copyright
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 20 Oct 2021 22:59:20 +0200
+
+claws-mail (3.18.0-1) unstable; urgency=medium
+
+  * New upstream version 3.18.0
+  - Includes fix for CVE-2021-37746 (Closes: #991722)
+  - Fixes "Segfault on selecting empty 'X-Face'…" (Closes: #983778)
+  * Re-enable NetworkManager support (Closes: #985027)
+  * Add upstream metadata
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 05 Sep 2021 01:51:51 +0200
+
+claws-mail (3.17.8-1) unstable; urgency=medium
+
+  * New upstream version 3.17.8
+  * Install deps file in S/MIME plugin (Closes: #970429)
+  * Clean "I: spare-manual-page" for perl-filter plugin
+  * Remove patches already in this release
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 25 Oct 2020 17:22:06 +0100
+
+claws-mail (3.17.7-1) unstable; urgency=medium
+
+  * New upstream version 3.17.7
+  - Includes fix for CVE-2020-16094 (Closes: #966630)
+    The fix was really added in previous version, but neither CVE nor
+    Debian bug were available at that time.
+  * Add post-release upstream fix for Litehtml
+  * Add post-release update for donations URI
+  * Bump compat level to 13 and simplify rules
+  * Manpages: update, fix section and switch format
+  * Fix typo on NEWS file (thanks lintian!)
+  * Remove duplicated pattern (thanks lintian!)
+  * Update installed path of release notes
+  * Add plugins static libraries to not-installed
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 05 Oct 2020 00:35:56 +0200
+
+claws-mail (3.17.6-1) unstable; urgency=medium
+
+  * New upstream version 3.17.6
+  - Includes security fix for STARTLS protocol violation in POP3 and
+    SMTP. IMAP requires a libetpan fix (upstream issue 386)
+  * Rename Debian NEWS file name
+  * Set Rules-Requires-Root field
+  * Remove obsolete patch
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 16 Jul 2020 18:24:18 +0200
+
+claws-mail (3.17.5-2) unstable; urgency=high
+
+  * Completely switch to libenchant-2-dev (Closes: #948532)
+  * Fix patch to really fix typo in RELEASE_NOTES
+  * Update year ranges in copyright
+  * Keep urgency high so this can enter testing quickly
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 25 Feb 2020 08:59:29 +0100
+
+claws-mail (3.17.5-1) unstable; urgency=high
+
+  * New upstream release
+  - Includes fixes for:
+    • libetpan 1.9.4 uses now pkg-config (Closes: #944456)
+    • litehtml crashes when opening a folder (Closes: #950623)
+  * Switch to libenchant-2-dev (Closes: #948532)
+  * Remove patch already in newer version
+  * Add patch to fix typo in RELEASE_NOTES
+  * Update watch file to version 4
+  * Raised urgency because of RC bug
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 24 Feb 2020 19:57:23 +0100
+
+claws-mail (3.17.4-3) unstable; urgency=high
+
+  * Backported upstream commits for Python 2 → 3 migration
+  * Update tools dependencies to python3 (Closes: #936307)
+  * Update Standards-Version to 4.5.0, no other changes
+  * Raised urgency because of RC bug
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 29 Jan 2020 08:50:09 +0100
+
+claws-mail (3.17.4-2) unstable; urgency=medium
+
+  * Remove claws-mail-python-plugin (Closes: #885266)
+  * Update Standards-Version (no other changes)
+  * Update some year ranges
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 14 Oct 2019 20:32:06 +0200
+
+claws-mail (3.17.4-1) unstable; urgency=medium
+
+  * New upstream version
+  - Fixes "Minor text-wrapping [mis]behaviour" (Closes: #736589)
+  - Adds new litehtml-viewer plugin (requires gumbo library)
+  * debian/patches/90fix_segfault_gdata_german.patch
+  - Remove patches already in this release
+  * debian/control
+  - Remove flex-old from Build-Depends (Closes: #932511)
+  - Set Multi-Arch: same to perl-filter
+  - Bump compat level to 12 via debhelper-compat
+  - Bump Standards-Version to 4.4.0
+  * debian/manpages/*
+  - Simplify manpages Makefile
+  - Update missing plugins in manpage and fix one typo
+  * Remove some end of line blanks and trailing blank lines
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 07 Aug 2019 18:37:50 +0200
+
+claws-mail (3.17.3-2) unstable; urgency=medium
+
+  * debian/patches/90fix_segfault_gdata_german.patch
+  - Add patch fixing segfault in gdata plugin (Closes: #923980)
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 03 Apr 2019 20:11:50 +0200
+
+claws-mail (3.17.3-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/patches/90fix_uri_highlighting.patch
+  - Remove patch already in this release
+  * debian/control
+  - Update Standards-Version to 4.3.0
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 29 Dec 2018 18:10:15 +0100
+
+claws-mail (3.17.2-1) unstable; urgency=medium
+
+  * New upstream version 3.17.2
+  - Includes handling of cases where signing/encryption is selected but
+    no privacy plugin is available (Closes: #638192)
+  * debian/copyright
+  - Update URLs, year ranges and removed file
+  * debian/rules
+  - Use dpkg's pkg-info.mk to get full version (thanks lintian!)
+  * debian/watch
+  - Update protocol URL (thanks lintian!)
+  * debian/upstream/signing-key.asc
+  - Re-export upstream key to be minimal (thanks lintian!)
+  * debian/patches/90fix_uri_highlighting.patch
+  - Backport upstream patch to make URI highlighting Unicode-aware
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 15 Dec 2018 15:43:32 +0100
+
+claws-mail (3.17.1-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/control
+  - Update Standards-Version to 4.2.1 (no other changes)
+  * debian/claws-mail-spamassassin.docs
+  - Add NOTICE file as required by Apache license (thanks lintian!)
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 26 Aug 2018 23:34:47 +0200
+
+claws-mail (3.17.0-1) unstable; urgency=medium
+
+  * New upstream release
+  - Requires nettle library
+  - Resurrect dillo-viewer plugin, available again in this release
+  - Includes fixes for:
+    • Cannot connect to LDAP server using TLS (Closes: #837752)
+  * debian/control, debian/compat
+  - Update Vcs URLs and Homepage URL schema
+  - Fix lintian warning: useless-autoreconf-build-depends
+  - Update Standards-Version to 4.2.0 (no other changes)
+  - Elevate debhelper compat level to 11
+  * debian/rules
+  - Remove dh_strip: automatic debug symbols migration already done
+  * debian/patches/90libnm.patch
+  - Remove patch already applied upstream
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 19 Aug 2018 13:19:50 +0200
+
+claws-mail (3.16.0-2~bpo9+1) stretch-backports; urgency=medium
+
+  * Rebuild for stretch-backports.
+
+ -- Stephen Kitt <skitt@debian.org>  Tue, 24 Jul 2018 23:21:42 +0200
+
+claws-mail (3.16.0-2) unstable; urgency=high
+
+  * patches/90libnm.patch, debian/control
+  - Add patch to port from libnm-glib to libnm (Closes: #862879)
+  - Build-Depends: switch to libnm-dev instead of network-manager-dev
+  * debian/control
+  - Update feeds-reader description (Closes: #898253)
+  - Standards-Version: updated to 4.1.4 (no other changes)
+  * debian/rules
+  - Remove dh arguments which are default now (thanks lintian)
+  * Raised urgency to avoid testing removal by RC bug
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 11 May 2018 00:12:22 +0200
+
+claws-mail (3.16.0-1) unstable; urgency=medium
+
+  * New upstream release
+  - Includes fixes for:
+    • claws-mail fails to build with libical3 (Closes: #883927)
+  * debian/control, debian/rules
+  - Disable JPilot: its library source package has not been updated
+    since 2015 and upstream sites have vanished
+  * debian/control
+  - Updated list of languages in -i18n long description
+  - Build-Depends: enchant 2.4.0 or greater is required now
+  * patches/10fix_format_security_errors.patch
+  - Remove patch already in this release
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 17 Dec 2017 18:37:38 +0100
+
+claws-mail (3.15.1-1) unstable; urgency=medium
+
+  * New upstream bugfix release
+  * patches/99fix_upgrades_from_stable.patch
+  - Remove patch already upstream
+  * debian/control
+  - perl-filter: remove Multi-Arch: same (Closes: #874239)
+  * debian/control, debian/compat
+  - Raise compat level to 10
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 07 Sep 2017 20:36:41 +0200
+
+claws-mail (3.15.0-3) unstable; urgency=medium
+
+  * debian/control
+  - Remove unused dependency libdbus-glib-1-dev
+  - Standards-Version: updated to 4.1.0 (no other changes)
+  * patches/99fix_upgrades_from_stable.patch
+  - Cherry-pick upstream patch fixing segfault when using old
+    configurations with IMAP accounts (usually from stable).
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 28 Aug 2017 23:46:15 +0200
+
+claws-mail (3.15.0-2) unstable; urgency=medium
+
+  * Upload upstream new version to unstable
+  * debian/control, debian/claws-mail-fancy-plugin.*,
+    debian/NEWS.Debian, manpages/claws-mail-fancy-plugin.xml,
+    manpages/Makefile,  manpages/claws-mail-extra-plugins.xml
+  - Remove claws-mail-fancy-plugin (Closes: #790199)
+  * debian/rules
+  - Support 'nodoc' in build options to disable manual building
+  * debian/control
+  - Standards-Version: updated to 4.0.0 (no other changes)
+  * debian/copyright
+  - Format: Update URL to use preferred version
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 09 Jul 2017 17:47:22 +0200
+
+claws-mail (3.15.0-1) experimental; urgency=medium
+
+  * New upstream version (Closes: #863171)
+  - Includes fixes for:
+    • shouldn't used translated headers internally (Closes: #758144)
+    • huge number of recipients get a bad display (Closes: #801854)
+    • handles IMAP UIDs incorrectly (Closes: #846170)
+    • "Next" no longer shows email (Closes: #847027)
+  - Requires updates to Build-Depends:
+    • libical-dev (vcalendar-plugin: removed internal copy)
+    • libytnef-dev (tnef-parser: removed internal copy)
+    • libgdata-dev >= 0.17.2 (gdata-plugin: bumped required version)
+    • librsvg2-dev >= 2.40.5 (SVG theme support, new feature)
+  * debian/control
+  - Build-Depends: remove libindicate-dev (Closes: #857259)
+  - Incorporate suggestions from Multi-Arch hinter (thanks!)
+  * debian/patches/*.patch
+  - Update patches to cope with changes and remove fuzziness
+  * debian/copyright
+  - Remove stanzas and licenses not used because of internal
+    library removals
+  * debian/rules
+  - Enable PIE hardening (thanks lintian!)
+  - Remove unrecognized configure options
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 31 May 2017 20:34:14 +0200
+
+claws-mail (3.14.1-3) unstable; urgency=medium
+
+  * debian/control
+  - pgpmime: update dependency on pinentry (Closes: #850410)
+  - python: add depends on python-gtk2 (Closes: #844561)
+  * debian/control, debian/rules
+  - Migrate to automatic debug symbol package
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 12 Jan 2017 22:57:15 +0100
+
+claws-mail (3.14.1-2) unstable; urgency=medium
+
+  * debian/control
+  - Build-Depends: update to cope with changes in gpgme (Closes: #846674)
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 04 Dec 2016 23:54:22 +0100
+
+claws-mail (3.14.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/manpages/claws-mail-bogofilter.xml
+  - Fix spelling error (thanks lintian!)
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 06 Nov 2016 18:41:16 +0100
+
+claws-mail (3.14.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  - Implements increased autocheck period (Closes: #712758)
+  - Uses correct gpg binary for importing keys (Closes: #829358)
+  * debian/claws-mail.install
+  - Fix icons for gnome-shell (Closes: #823095)
+    Thanks Laurent Bigonville for the patch.
+  * debian/control
+  - Fix typo in perl plugin description (thanks lintian)
+  - i18n: update list of locales in this release (+da +id +tr -lt)
+  - Standards-Version: updated to 3.9.8 (no other changes)
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 07 Aug 2016 21:38:33 +0200
+
+claws-mail (3.13.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  - Dropped patches already in this release:
+    • CVE-2015-8708.patch
+    • fix-bug-3584-After-3.13.1-characters-in-some-Japanes.patch
+  * debian/control
+  - libravatar: Fix typo in description (thanks lintian)
+  * Many thanks to Ben and Salvatore for the latest NMUs!
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 26 Jan 2016 09:57:22 +0100
+
+claws-mail (3.13.1-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload (with maintainer approval).
+  * Add fix-bug-3584-After-3.13.1-characters-in-some-Japanes.patch.
+    Fixes "Characters in some Japanese codec are never correctly converted
+    to internal ones". (Closes: #811046)
+  * Add CVE-2015-8708.patch.
+    CVE-2015-8708: Incomplete fix for CVE-2015-8614. Adjusts and comments
+    range checks in JP text conversions.
+    Thanks to Ben Hutchings <ben@decadent.org.uk> (Closes: #811048)
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 15 Jan 2016 08:46:03 +0100
+
+claws-mail (3.13.1-1) unstable; urgency=medium
+
+  * New upstream release:
+  - 'gdata-plugin: Segfault when activating…' (Closes: #801375)
+  - 'vcalendar-plugin: hijacks org.gnome.Shell…' (Closes: #683283)
+  - Russian already in desktop file (Closes: #608875)
+  * debian/control
+  - i18n: update list of locales in this release (+ru -bg -eo)
+  * debian/copyright
+  - Update removed file stanza and some others found
+  * claws-mail-doc.doc-base.claws-mail-manual-[de,pl]
+  - Removed doc-base entries for removed manuals (thanks lintian!)
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 21 Dec 2015 00:41:39 +0100
+
+claws-mail (3.13.0-1) unstable; urgency=medium
+
+  * New upstream release:
+  - 'Wrong timezone while using date_fmt function' (Closes: #760283)
+  - 'Crash when viewing message signed by known key' (Closes: #796870)
+  * debian/control
+  - i18n: update list of released locales
+  - attach-remover: make long description more accurate
+  * debian/claws-mail.menu
+  - Removed to implement tech-ctte resolution on #741573
+  * debian/claws-mail.lintian-overrides
+  - Added override for nam/name typo: it's a debug string
+  * debian/copyright
+  - Drop geolocation: not released in tarball (thanks lintian!)
+  - Update source URL to current site and year ranges
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 13 Oct 2015 01:29:29 +0200
+
+claws-mail (3.12.0-1) unstable; urgency=medium
+
+  * New upstream release:
+  - 'cannot reorganize mailboxes' (Closes: #777208)
+  - 'dropdown menu bar has disappeared…'(Closes: #778886)
+  - 'depends on plugins libraries'  (Closes: #779824)
+  - 'new upstream version (3.12.0)…' (Closes: #793665)
+  * 14CVE_2010_5109.patch, 15fix_crash_open_folder.patch,
+    13desktop_file_categories.patch
+  - Remove patches applied upstream
+  * debian/control, debian/copyright, debian/claws-mail-managesieve*
+  - Add managesieve plugin (new in this release)
+  * debian/rules
+  - Set perl-plugin manpage release version automatically
+  * 12fix_manpage_header.patch
+  - Update patch to cope with upstream changes
+  * debian/control, debian/watch
+  - Update VCS-* and watch URLs (thanks Julian Wollrath)
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 18 Aug 2015 16:37:25 +0200
+
+claws-mail (3.11.1-3) unstable; urgency=medium
+
+  * patches/15fix_crash_open_folder.patch, patches/series
+  - Fix segfault trying to open a folder (Closes: #771737)
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 04 Dec 2014 17:41:37 +0100
+
+claws-mail (3.11.1-2) unstable; urgency=high
+
+  * patches/14CVE_2010_5109.patch, patches/series
+  - Fix possible buffer overflow CVE-2010-5109 (Closes: #771360)
+  - Raised urgency because of RC security bug
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 29 Nov 2014 23:03:27 +0100
+
+claws-mail (3.11.1-1) unstable; urgency=medium
+
+  * New upstream bugfix release
+  - Disable SSLv3 for POP3 and STARTTLS connections, in addition
+    to SMTP (POODLE).
+  - Removed broken appdata added in previous release (also removes
+    intltool Build-Depends)
+  * debian/control
+  - i18n long description: added Norwegian Bokmål translation
+  * patches/13desktop_file_categories_keywords.patch
+  - Recover and update previous patch as upstream desktop
+    file has been reverted to 3.10.
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 28 Oct 2014 00:30:28 +0100
+
+claws-mail (3.11.0-1) unstable; urgency=medium
+
+  * New upstream release
+  - spam-report: fixes URL for Debian lists (Closes: #755022)
+  * patches/10desktop_file_categories.patch
+  - Removed, already incorporated upstream
+  * debian/control
+  - Build-Depends:
+    • feeds-parser switched from libxml2 to expat based parser
+    • new appdata requires intltool
+  - Standards-Version: updated to 3.9.6 (no other changes)
+  * debian/rules, debian/*.install
+  - Add new upstream provided appdata to binary packages
+  * debian/copyright
+  - Remove file not present anymore (thanks lintian!)
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 21 Oct 2014 03:19:07 +0200
+
+claws-mail (3.10.1-4) unstable; urgency=medium
+
+  * debian/control
+  - pgpmime: add Depends on pinentry-gtk2 (Closes: #762845)
+  - pgpmime: add Suggests on gnupg-agent
+  - python: ensure -dev package is installed (Closes:  #762482)
+  * debian/copyright
+  - Fix file-without-copyright-information lintian warning
+  - Fix wilcard usage in Files paragraphs, cleans lintian infos:
+    • unused-file-paragraph-in-dep5-copyright
+    • wildcard-matches-nothing-in-dep5-copyright
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 29 Sep 2014 19:24:21 +0200
+
+claws-mail (3.10.1-3) unstable; urgency=medium
+
+  * debian/rules
+  - Restore escaped EOL in dh_auto_configure call and remove
+    unnecessary parameter. Thanks to Ian Zimmerman for noticing!
+  * debian/watch, debian/upstream/signing-key.asc
+  - Fix project name in watch file and add upstream signing key
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 30 Jul 2014 22:59:21 +0200
+
+claws-mail (3.10.1-2) unstable; urgency=medium
+
+  * debian/control
+  - Require libetpan-dev >= 1.5 and switch to libgnutls28-dev in
+    Build-Depends to link only to gnutls28
+  * debian/copyright
+  - Update Source address (project was renamed at sf.net!)
+  - Review whole source tree and add more specific stanzas
+  * debian/control
+  - Remove contradictory statement (Closes: #751123)
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 12 Jun 2014 11:12:38 +0200
+
+claws-mail (3.10.1-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #742695, #730050)
+  * debian/control
+  - Remove libytnef dependency: it was assimilated (and modified)
+    because upstream was unmaintained
+  - Add gpgsm dependency to claws-mail-smime-plugin, as it seems
+    required for it to work properly (thanks bigon for checking!)
+  - Update list of supported locales in long description of -i18n
+  - Update and correct -plugins/-extra-plugins long description
+  - Fix typos in long descriptions:
+    · clamd-plugin (Closes: #747647)
+    · fetchinfo-plugin (Closes: #747650)
+  - Fix missing words in long descriptions:
+    · gdata-plugin (Closes: #747725)
+    · vcalendar-plugin (Closes: #747727)
+  - Remove libpoppler-dev dependency (Closes: #749968) (thanks pino!)
+  - Require libetpan greater than 1.4.1 so the IMAP SSL connection's
+    certificate chain is available for verification (since 3.10.0)
+  * debian/control, debian/*-libravatar.* debian/manpages/Makefile,
+    debian/manpages/*-libravatar.xml
+  - Added new Libravatar plugin (since 3.10.0)
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 10 Jun 2014 01:14:11 +0200
+
+claws-mail (3.9.3-2) unstable; urgency=medium
+
+  [ Hideki Yamane ]
+  * debian/control
+    - remove unnecessary "Build-Depends: libt1-dev" to help RM: t1lib
+      (Closes: #732650)
+
+  [ Ricardo Mones ]
+  * debian/control
+    - remove inactive uploaders (thanks for being there! :-)
+  * debian/libclaws-mail-dev.lintian-overrides
+    - add override for “wrong-section-according-to-package-name”
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 19 Feb 2014 20:12:07 +0100
+
+claws-mail (3.9.3-1) unstable; urgency=medium
+
+  * New upstream release
+  * patches/99_fix_vcalendar_711864.patch, patches/98_fix_pod_708004.patch
+  - Removed, already included in this release
+  * debian/control
+  - Update Standards-Version to 3.9.5 (no other changes required)
+  - Improve some appearances of GTK+ in descriptions
+  * debian/rules
+  - Update release version
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 18 Dec 2013 01:10:02 +0100
+
+claws-mail (3.9.2-2) unstable; urgency=medium
+
+  * patches/98_fix_pod_708004.patch
+  - Completely fix POD errors (Closes: #708004)
+    Patch thanks to Dominic Hargreaves <dom@earth.li>
+  * manpages/claws-mail-clamd-plugin.xml
+  - Explain better when home permissions have to be set and
+    how to avoid it.
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 13 Aug 2013 19:05:24 +0200
+
+claws-mail (3.9.2-1) unstable; urgency=low
+
+  * New upstream release
+  - Fixes finding python shared library (Closes: #711544)
+  - Fixes FTBFS with perl 5.18: POD errors (Closes: #708004)
+  - Fixes flawed german translation (Closes: #689866)
+  * NEWS.Debian
+  - Write about changes in plugin packages happened in 3.9.1
+    Many thanks to Andreas Rönnquist for the initial version of this
+    file in the backported package for 3.9.1. (Closes: #708354)
+  * claws-mail-tools.install, claws-mail-tools.docs
+  - Be more specific on what to install to avoid autotools cruft
+    and move README file to package docs
+  * rules
+  - Increment version; do not compress scripts (Closes: #703099)
+  * control
+  - Set Vcs-* fields to canonical URLs (thanks lintian!)
+  * patches/10desktop_file_categories.patch, patches/series
+  - Fix desktop file warnings (remove “Office” from categories)
+  * patches/99_fix_vcalendar_711864.patch
+  - Fix hours comboboxes in vcalendar (Closes: #711864)
+    Patch from upstream VCS commits:
+    - 0c8fa959c3daf8fb002fbfc06260c4b4ca5d8f50
+    - 1b991ce1f05877ccd2d872da56cb55d1e1b0a3d1
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 17 Jun 2013 18:40:35 +0200
+
+claws-mail (3.9.1-1) unstable; urgency=low
+
+  * New upstream release
+  - In this release all the plugins formerly know as extra-plugins
+    were incorporated in the main source code tree. Some of them
+    were also dropped in the process: dillo viewer (removed from
+    packaging time ago), html2-viewer and trayicon plugin.
+  * control, *trayicon*, manpages/*trayicon*, manpages/Makefile
+  - Remove trayicon plugin, superseded by notification plugin
+  - Remove --disable-dillo flag, not needed anymore
+  * control, rules, manpages/Makefile, *-extra-plugins,
+    *-acpi-notifier.*, *-address-keeper.*, *-archiver-plugin.*,
+    *-attach-remover.*, *-attach-warner.*, *-bsfilter-plugin.*,
+    *-clamd-plugin.*, *-fancy-plugin.*, *-feeds-reader.*,
+    *-fetchinfo-plugin.*, *-gdata-plugin.*, *-newmail-plugin.*,
+    *-mailmbox-plugin.*, *-multi-notifier.*, *-tnef-parser.*,
+    *-perl-filter.*, *-pdf-viewer.*, *-python-plugin.*,
+    *-spam-report.*, *-vcalendar-plugin.*
+  - Migrate surviving extra-plugins, manpages converted from docbook
+    SGML to XML and updated
+  - Keep extra-plugins meta-package to ease transition, added Breaks
+    and/or Replaces with all previous versions
+  - Expand Build-Depends to enable building of all plugins
+  * copyright
+  - Updated years
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 07 May 2013 23:55:27 +0200
+
+claws-mail (3.9.0-2) experimental; urgency=low
+
+  * claws-mail-tools.dirs, *.install, compat, rules
+  - Switch to debhelper sequencer
+  - Bump compatibility level to 9
+  * claws-mail-doc.doc-base.*
+  - Added doc-base entries for manuals
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 20 Feb 2013 01:11:05 +0100
+
+claws-mail (3.9.0-1) experimental; urgency=low
+
+  * New upstream release (Closes: #693350)
+  - Fixes 'Array initialization beyond array size' (Closes: #688478)
+  * debian/control
+  - Update Standards-Version to 3.9.4 (no other changes required)
+  * debian/patches/9[9876]*.patch, debian/patches/series
+  - Remove backported patches already in this release
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 22 Nov 2012 00:39:55 +0100
+
+claws-mail (3.8.1-2) unstable; urgency=medium
+
+  * patches/99_fix_CVE-2012-4507.patch
+  - Added fix for CVE-2012-4507 from 3.8.1cvs82 (Closes: #690151),
+    raised urgency because of grave bug
+  * patches/98_fix_segfault_no_utf_gpgme_strerror.patch,
+    patches/97_fix_segfault_parse_parameters.patch,
+    patches/96_fix_segfault_viewing_signature_info.patch
+  - Backported patches from upstream CVS fixing segfaults discovered
+    after 3.8.1 release
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 12 Oct 2012 00:04:03 +0200
+
+claws-mail (3.8.1-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/rules
+  - Remove old package symlinks (no more sylpheed-claws-gtk2)
+  - Add CFLAGS to make invocation for proper hardening and
+    enable read-only relocations and fortify source functions
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 28 Jun 2012 01:25:20 +0200
+
+claws-mail (3.8.0cvs55-1) unstable; urgency=low
+
+  * Pre-release upload after string freeze
+  * debian/rules
+  - Enable hardening through dpkg-buildflags
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 21 Jun 2012 01:22:23 +0200
+
+claws-mail (3.8.0-2) unstable; urgency=low
+
+  * debian/control
+  - Update Standards-Version to 3.9.3 (no other changes)
+  - Remove dependency on binary from -doc package (thanks lintian)
+  - Set appropriate section (metapackages) for -plugins
+  - Remove override disparity for libclaws-mail-dev
+  - Remove conflict with ancient GTK+ version (beyond oldstable)
+  * debian/copyright
+  - Update to Copyright Format 1.0
+  - Fix linked license not to be a symlink (thanks lintian)
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 06 May 2012 02:27:53 +0200
+
+claws-mail (3.8.0-1) unstable; urgency=low
+
+  * New upstream release
+  - Removes use of deprecated GnuTLS *_set_priority (Closes: #624062)
+  - Can be built without gcrypt dependency (Closes: #638642)
+  * patches/13fix_manpage_hyphens.patch, patches/14compose_read.patch,
+    patches/series
+  - Removed patches, now added upstream; option has been renamed
+    to '--compose-from-file' instead of '--compose-read'
+  * debian/rules
+  - Make binary-arch/binary-indep produce the right packages
+  - Replace dh_clean -k with dh_prep
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 17 Dec 2011 02:42:52 +0100
+
+claws-mail (3.7.10-2) unstable; urgency=low
+
+  * debian/control
+  - Remove dependency on obsolete libgnomeprint (thanks for the
+    patch goes to Michael Biebl) (Closes: #644562)
+  * debian/copyright
+  - Add missing standalone license paragraph (thanks lintian!)
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 09 Oct 2011 16:01:21 +0200
+
+claws-mail (3.7.10-1) unstable; urgency=low
+
+  * New upstream release
+  - Includes fixes for forwarded bugs:
+    'nntp auth is broken' (Closes: #625732)
+    'POP-SSL defunct after upgrade of libgnutls26' (Closes: #638823)
+  * debian/rules, debian/claws-mail.desktop
+  - Remove desktop file, just use upstream's one (Closes: #610342)
+  - Add build-arch and build-indep targets to make lintian happy
+  - Use -k to keep upstream changelog name and avoid duplication
+  * debian/control
+  - Use linux-any instead of negated list (Closes: #634613)
+  - Development moved to git.debian.org: added Vcs-* headers
+  * debian/patches/14compose_read.patch, debian/patches/series
+  - Added option to read composed mail from file (Closes: #544868)
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 28 Aug 2011 21:27:37 +0200
+
+claws-mail (3.7.9-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/claws-mail.desktop
+  - Include x-scheme-handler in .desktop file (Closes: #610342)
+  * debian/claws-mail.desktop
+  - Add Russian translation by Alexander Sashanov (Closes: #608875)
+  * debian/control
+  - Updated Standards-Version to 3.9.2 (no other changes required)
+  * debian/copyright
+  - Updated to follow DEP5 specification format
+  - Removed references to files no longer in sources
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 18 Apr 2011 00:44:31 +0200
+
+claws-mail (3.7.8-1) unstable; urgency=low
+
+  * New upstream release (Closes: #599547)
+  * debian/control
+  - Added new dependencies required to enable manual build
+  * debian/control, debian/rules
+  - Explicit depend on libgnutls-dev instead of relying on being pulled
+    by libetpan-dev, same case as bug #498445.
+  - Remove unused openssl references (thanks Colin Leroy for notifying)
+  * debian/copyright
+  - Fix some spacing typo and rework paragraph format
+  * debian/patches/13fix_manpage_hyphens.patch
+  - Fix hyphens not escaped in manpage
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 12 Dec 2010 13:21:41 +0100
+
+claws-mail (3.7.6-4) unstable; urgency=low
+
+  * debian/rules, debian/claws-mail-doc.dirs
+  - Just move manual directories from claws-mail (Closes: #600047)
+  * debian/inst-manual.sh
+  - Removed manual installation scriptlet, not needed anymore
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 13 Oct 2010 16:32:08 +0200
+
+claws-mail (3.7.6-3) unstable; urgency=low
+
+  * debian/rules
+  - Install English manual in the expected subdirectory and make
+    the binary aware of the actual manual dir (Closes: #599784)
+  - Add German manual provided by upstream (Closes: #599785)
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 12 Oct 2010 18:27:58 +0200
+
+claws-mail (3.7.6-2) unstable; urgency=low
+
+  * debian/control
+  - Replace unsatisfiable suggestion
+  - Update Standards-Version to 3.9.1 (no other changes)
+  - Exclude network-manager from Build-Depends on architectures
+    which doesn't have it ported yet (Closes: #594988)
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 01 Sep 2010 18:48:54 +0200
+
+claws-mail (3.7.6-1) unstable; urgency=low
+
+  * New upstream release
+  * Switch to dpkg-source 3.0 (quilt) format
+  * README.source
+  - Removed (not required anymore)
+  * debian/patches/*
+  - Regenerated all patches
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 05 May 2010 16:18:14 +0200
+
+claws-mail (3.7.5-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control
+  - Fix typo in description (Closes: #548201)
+  - Fix ${misc:Depends} usage (thanks lintian)
+  - Remove some ${shlibs:Depends} not needed
+  - Remove Conflicts/Replaces/Provides entries for the renamed
+    sylpheed-claws-gtk2 packages.
+  - Updated Standards-Version to 3.8.4 (no other changes)
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 03 Feb 2010 00:11:23 +0100
+
+claws-mail (3.7.4-1) unstable; urgency=low
+
+  * New upstream release
+  - Fixes crash when copying mail via IMAP (Closes: #554781)
+  - Fixes attempt to connect all accounts on exit (Closes: #552295)
+  * debian/control
+  - Fix typo in -doc description (Closes: #557456)
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 09 Jan 2010 01:03:02 +0100
+
+claws-mail (3.7.3-1) unstable; urgency=low
+
+  * New upstream release
+  - Fixes 'no refresh of lists after upgrade' (Closes: #548689)
+  - Fixes 'entries not removed switching folder' (Closes: #548362)
+  - Fixes 'bashism in /bin/sh script' (Closes: #530057)
+  - Includes 'script for convert arbitrary Evolution mail folders
+    (mbox format + subfolders)' (Closes: #461435)
+  - Fixed previously 'parsing CSS in HTML causes quit' (Closes: #522424)
+  * debian/README.source
+  - Added file (thanks lintian!)
+  * debian/control
+  - Use the newer libreadline6-dev (thanks Matthias Klose for notifying)
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 09 Oct 2009 10:03:13 +0200
+
+claws-mail (3.7.2-2) unstable; urgency=low
+
+  * debian/control, debian/rules, debian/claws-mail-dillo-viewer.manpages,
+    debian/manpages/claws-mail-dillo-viewer.xml, debian/manpages/Makefile
+  - Acknowledge NMU and remove dillo plugin: has been too much time
+    since last time claws-mail was in testing and seems dillo2 won't be
+    ready for the next release (Closes: #510597)
+  * debian/rules
+  - Use system config.{sub|guess} in preparation of the new source
+    package format "3.0 (quilt)" (Closes: #538611)
+  * debian/control
+  - Update Standards-Version to 3.8.3 (no other changes required)
+  - Added Homepage (incredibly missing until now!)
+  * debian/patches/*.patch
+  - Added patch descriptions
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 20 Sep 2009 19:25:02 +0200
+
+claws-mail (3.7.2-1) unstable; urgency=low
+
+  * New upstream release
+  - Features add account address to Message-Id (Closes: #531052)
+  - Fixes segfault editing group of addresses (Closes: #520223)
+  - Fixes procesing rules saved incorrectly (Closes: #511220)
+  * debian/control
+  - Use xdg-open true by default: added dependency (Closes: #534050)
+  - Bumped Standards-Version to 3.8.2: moved claws-mail-i18n package
+    to new localization section
+  * patches/09use_x_www_browser.patch
+  - Removed as no longer necessary (also because of using xdg-open)
+  * debian/README.Debian
+  - Add a note on how to enable (or not!) the xdg-open usage
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 03 Jul 2009 16:42:03 +0200
+
+claws-mail (3.7.1-2) unstable; urgency=low
+
+  * debian/control
+  - Updated Standards-Version, fixed -dbg and -dev sections
+  * patches/12fix_manpage_header.patch, patches/series
+  - New patch to make manpage parseable by lexgrog
+  * debian/copyright
+  - Update year to match sources' header and typo
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 01 May 2009 18:43:51 +0200
+
+claws-mail (3.7.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 07 Mar 2009 08:17:50 +0100
+
+claws-mail (3.7.0-2) unstable; urgency=low
+
+  * Upload to unstable (Closes: #499753, #488638, #509408)
+  * debian/control
+  - libclaws-mail-dev requires now enchant
+  - write better descriptions for some packages (thanks lintian!)
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 27 Feb 2009 15:39:57 +0100
+
+claws-mail (3.7.0-1) experimental; urgency=low
+
+  * New upstream release (Closes: #509408)
+  * debian/control
+  - Add docbook-xml dependency to fix "I/O error : Attempt to load network
+    entity http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" errors
+    and related warnings.
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 24 Dec 2008 20:34:02 +0100
+
+claws-mail (3.6.1-1) experimental; urgency=low
+
+  * New upstream release
+  * debian/control
+  - libetpan 0.57 required now
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 15 Oct 2008 02:39:58 +0200
+
+claws-mail (3.6.0-1) experimental; urgency=low
+
+  * New upstream release
+  - Supports certs in ca-certificates since 3.5.0cvs70 (Closes: #488638)
+  - Fixes 'useless lines in clawsrc' since 3.5.0cvs131 (Closes: #499753)
+  * debian/control
+  - libetpan >= 0.56 is required now for building (not available in sid)
+  - Removed old aspell dependencies and added required libenchant-dev
+  - Added dependencies for building XML manpages
+  - Added new languages in this release (Bulgarian, Dutch, Russian and
+    Swedish) to -i18n package description
+  * debian/control, debian/rules
+  - Incorporated smime-plugin from external plugins (3.5.0cvs119)
+  * debian/*.manpages, debian/manpages/*.xml, debian/manpages/Makefile,
+    debian/rules
+  - Added manpages for all plugins built
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 04 Oct 2008 19:21:01 +0200
+
+claws-mail (3.5.0-2) unstable; urgency=low
+
+  * debian/control
+  - Fix libclaws-mail-dev section to match override file
+  - Fix spelling-error-in-description (thanks lintian)
+  - Fix -i18n description to reflect only available languages
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 09 Jul 2008 16:33:34 +0200
+
+claws-mail (3.5.0-1) unstable; urgency=low
+
+  * New upstream release
+  - Fixes pending bugs:
+  - Segfault verifying a GPG signature (Closes: #481856)
+  - Reply with quote doesn't include message (Closes: #486889)
+  - Double free segfault denying SSL certificate (Closes: #481381)
+  * patches/09use_x_www_browser.patch
+  - Fixed format for dpkg-source (quilt format) (Closes: #485327)
+  * debian/control
+  - Updated standards version
+  * patches/10*.patch, patches/series, debian/README.Debian
+  - Removed patch, provided by new upstream autofaces feature
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 28 Jun 2008 00:18:16 +0200
+
+claws-mail (3.4.0-2) unstable; urgency=low
+
+  * debian/control
+  - Re-enabled NetworkManager support (Closes: #478316)
+  - Fixed section for libclaws-mail-dev (thanks lintian!)
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 29 Apr 2008 00:39:25 +0200
+
+claws-mail (3.4.0-1) unstable; urgency=low
+
+  * New upstream release
+  - Includes fix for IMAP crash on buggy servers (Closes: #474712)
+  * debian/docs
+  - Added AUTHORS file to allow more accurate and smaller copyright
+  * debian/copyright
+  - Switched to machine parsable copyright format
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 18 Apr 2008 17:22:50 +0200
+
+claws-mail (3.3.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 25 Feb 2008 00:34:05 +0100
+
+claws-mail (3.3.0-1) unstable; urgency=low
+
+  * New upstream release
+  - Fixes "actions not execute immediately" (Closes: #458904)
+  * debian/control, debian/rules
+  - Upstream removed clamav plugin from main tarball (Closes: #462963)
+  * debian/control
+  - Enable NetworkManager support, new in this release
+  * debian/patches/08improve_manpage.patch, debian/patches/series
+  - Remove temporary patch already upstream
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 08 Feb 2008 11:37:42 +0100
+
+claws-mail (3.2.0-2) unstable; urgency=low
+
+  * debian/control
+  - Removed sylpheed-claws-gtk2 dummy packages and set the
+    Conflict/Replaces/Provides fields in the corresponding
+    claws-mail packages according policy §7.5.2 (Closes: #458440)
+  - Removal of the above packages fixes also "Trying to install
+    sylpheed-claws-gtk2 in sid leads to unresolvable conflict"
+    (Closes: #447496)
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 02 Jan 2008 11:56:55 +0100
+
+claws-mail (3.2.0-1) unstable; urgency=low
+
+  * New upstream release
+  - Fixes NNTP posting failure after connection break (Closes: #453157)
+  - Fixes IMAP deletion marks that are not executed (Closes: #450877)
+  * debian/README.Debian
+  - Document changes from older versions about environment usage in
+    external commands (Closes: #339035)
+  - Document changes from older versions about replying/forwarding
+    mails with text modified by actions (Closes: #339036)
+  * debian/control
+  - Newer Standards-Version, require latest libetpan for building
+  * debian/rules
+  - Remove empty directory usr/share/locale from claws-mail package
+  - Remove temporary fix for sylprint removal, now included upstream
+  * debian/patches/08improve_manpage.patch
+  - Added patch for improving manpage (to be submitted upstream)
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 18 Dec 2007 20:47:51 +0100
+
+claws-mail (3.1.0-2) unstable; urgency=high
+
+  * debian/rules
+  - CVE-2007-6208: removal of sylprint files (Closes: #454089)
+    This is a temporary fix, until next upstream version, which
+    has already removed the files.
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 04 Dec 2007 12:11:17 +0100
+
+claws-mail (3.1.0-1) unstable; urgency=low
+
+  * New upstream release
+  - Includes decoding of to field in URIs (Closes: #448814)
+  - Honors bcc field in URIs (Closes: #448985)
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 19 Nov 2007 15:55:23 +0100
+
+claws-mail (3.1.0~rc2-1) unstable; urgency=low
+
+  * New upstream release candidate
+  - Reverts NNTP auth to previous behaviour (Closes: #450698)
+  - Fixes UTF-8 data trimming (Closes: #449126)
+  * debian/README.Debian
+  - reorganised a bit in sections
+  * debian/claws-mail.desktop
+  - Fixed and improved categories (thanks lintian!)
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 13 Nov 2007 17:40:56 +0100
+
+claws-mail (3.1.0~rc1-1) unstable; urgency=low
+
+  * New upstream release candidate
+  * debian/menu
+  - Removed longtitle (Closes: #445160)
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 02 Nov 2007 23:49:26 +0100
+
+claws-mail (3.0.2-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control
+  - Removed duplicated lines from description (Closes: #444045)
+  * debian/claws-mail.menu
+  - Fix menu section for the new menu structure
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 02 Oct 2007 21:32:14 +0200
+
+claws-mail (3.0.1-2) unstable; urgency=low
+
+  * debian/control
+  - Removed duplicated lines (Closes: #444045)
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 26 Sep 2007 10:02:21 +0200
+
+claws-mail (3.0.1-1) unstable; urgency=low
+
+  * New upstream release
+  - Includes fix for crash when saving template (Closes: #443313)
+  * debian/10_get_xface_from_file.patch
+  - Updated to fit upstream changes.
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 22 Sep 2007 14:21:54 +0200
+
+claws-mail (3.0.0-1) unstable; urgency=low
+
+  * New upstream release
+  - Includes new localized date in replies (Closes: #431732)
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 03 Sep 2007 11:12:08 +0200
+
+claws-mail (3.0.0~rc2-1) experimental; urgency=low
+
+  * New upstream RC release
+  * debian/copyright
+  - Updated to reflect upstream license change to GPLv3
+  * debian/DEBIAN.Readme
+  - Note the existence of the claws-mail-pgpcore virtual package
+  * debian/control
+  - Remove unused and reorganise suggests/recommends (Closes: #436085)
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 11 Aug 2007 16:36:36 +0200
+
+claws-mail (2.10.0-4) unstable; urgency=low
+
+  * debian/control
+  - Removed spurious dependencies
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 13 Jul 2007 08:27:20 +0200
+
+claws-mail (2.10.0-3) unstable; urgency=low
+
+  * debian/rules
+  - remove manual files from main package (already in doc)
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 07 Jul 2007 13:37:29 +0200
+
+claws-mail (2.10.0-2) unstable; urgency=low
+
+  * New upstream release
+  * Fix distribution, previous changes were not for experimental
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 02 Jul 2007 23:58:53 +0200
+
+claws-mail (2.10.0-1) experimental; urgency=low
+
+  * debian/control
+  - Added transitional package for bogofilter (Closes: #430693)
+  - Fixed override disparities: -dbg priority and -doc section
+  * debian/rules
+  - Fix moved tools to allow rebuilding
+  - Fixed -$(MAKE) distclean properly (thanks lintian!)
+  * patches/09use_x_www_browser.patch, patches/series
+  - Added patch to use x-www-browser alternative (Closes: #399104)
+  * debian/control
+  - Added gedit (default external text editor) to recommends
+  - Added www-browser to suggests list
+  - Changed Source-Version usages for the appropriate ones
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 02 Jul 2007 19:17:34 +0200
+
+claws-mail (2.10.0~rc1-1) experimental; urgency=low
+
+  * New upstream release candidate
+  * debian/inst-manual.sh
+  - Copy folders instead moving (Closes: #412136)
+  * debian/control, debian/rules, patches/10get_xface_from_file.patch
+  - Patch rebuilt, patch management simplified (dpatch -> quilt)
+  * patches/*dpatch, patches/00list; patches/series
+  - Removed, unnecesary after quiltification; added new series
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 19 Jun 2007 00:20:17 +0200
+
+claws-mail (2.9.2-1) unstable; urgency=low
+
+  * New upstream release.
+  - New name transition is done now (Closes: #407685)
+  - Support for non standard ports in wizard present (Closes: #408163)
+  - Now built with latest libetpan (Closes: #409650)
+  - Jpilot support is fixed now (Closes: #325248)
+  - Should be installable on unstable (Closes: #421539)
+  * debian/control
+  - Added claws-mail-pgpcore private virtual package
+  - Descriptions improved and readproof (thanks Paul!)
+  - Adjusted libetpan required version (now 0.49)
+  * Fixed missing semicolon in changelog (very lintian/linda noisy)
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 19 May 2007 00:32:52 +0200
+
+claws-mail (2.9.1-1) unstable; urgency=low
+
+  * New upstream release
+  - Incorporates fix (from 2.6.1) for defined headers (Closes: #403367)
+  * debian/control
+  - Just conflict with GTK+ versions under 2.10 (Closes: #419877)
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 25 Apr 2007 12:00:59 +0200
+
+claws-mail (2.8.1-1) unstable; urgency=low
+
+  * New upstream release (bugfix)
+
+ -- Ricardo Mones <mones@debian.org>  Fri,  9 Mar 2007 12:24:10 +0100
+
+claws-mail (2.8.0-1) unstable; urgency=low
+
+  * New upstream release
+  * patches/10get_xface_from_file.patch, patches/10*.dpatch
+  - temporarily regenerated to keep feature before integration upstream
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 27 Feb 2007 00:29:00 +0100
+
+claws-mail (2.7.2-1) unstable; urgency=low
+
+  * New upstream version
+  * debian/control
+  - added imap-client to provided virtual packages
+  - added transitional packages for s-c-gtk2 to claws-mail migration
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 27 Jan 2007 13:43:18 +0100
+
+claws-mail (2.7.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 19 Jan 2007 16:02:43 +0100
+
+claws-mail (2.7.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Tue,  9 Jan 2007 10:18:20 +0100
+
+claws-mail (2.7.0~rc3-1) experimental; urgency=low
+
+  * New upstream release candidate
+  * debian/control, debian/rules
+  - Added debug package claws-mail-dbg
+
+ -- Ricardo Mones <mones@debian.org>  Fri,  5 Jan 2007 09:49:37 +0100
+
+claws-mail (2.7.0~rc2-1) experimental; urgency=low
+
+  * New upstream release candidate
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 23 Dec 2006 20:38:30 +0100
+
+claws-mail (2.7.0~rc1-1) experimental; urgency=low
+
+  * Package renaming, upstream name is now Claws Mail.
+  * debian/README.Debian
+  - Updated included libraries
+  * debian/control, debian/rules
+  - Renamed sylpheed-claws-gtk2* to claws-mail*
+  - Added claws-mail-tools to include the scripts as sylpheed-claws-scripts
+    are no longer valid because of rc dir name change
+  * debian/inst-manual.sh, debian/watch
+  - Documentation package and upstream tarball names changed
+  * patches/01configure.*, patches/02ml_menu_fix.*, patches/00list
+  - Removed obsolete patches, updated list
+  * debian/rules, debian/control
+  - rename symlink and set claws-mail to replace sylpheed-claws-gtk2
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 18 Dec 2006 18:57:15 +0100
+
+sylpheed-claws-gtk2 (2.6.0-1) unstable; urgency=low
+
+  * New upstream release
+  - supports GSSAPI authentication for IMAP (Closes: #383274)
+  * debian/control
+  - libetpan 0.48 is required now
+  * patches/00list, patches/02ml_menu_fix.*patch
+  - temporary patch to fix Mailing-List menu from current CVS
+
+ -- Ricardo Mones <mones@debian.org>  Wed,  8 Nov 2006 13:57:19 +0100
+
+sylpheed-claws-gtk2 (2.5.6-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 19 Oct 2006 20:29:34 +0200
+
+sylpheed-claws-gtk2 (2.5.5-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control
+  - Removed duplicate dependency on libaspell-dev (thanks lintian!)
+  - Correction for -i18n package description (Closes: #385482)
+  - Conflict with GTK2 >= 2.9 until it enters unstable (Closes: #391897)
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 12 Oct 2006 17:18:36 +0200
+
+sylpheed-claws-gtk2 (2.5.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Wed,  4 Oct 2006 14:07:19 +0200
+
+sylpheed-claws-gtk2 (2.5.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 27 Sep 2006 08:28:31 +0200
+
+sylpheed-claws-gtk2 (2.5.1-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/rules
+  - added missing pgpmime.deps
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 26 Sep 2006 10:36:21 +0200
+
+sylpheed-claws-gtk2 (2.5.0-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control, debian/rules
+  - added new bogofilter plugin package
+  * debian/rules, debian/inst-manual.sh
+  - added new Spanish manual to the doc package, refactored rules to script
+  * debian/sylpheed-claws-gtk2.menu
+  - added longtitle description, fixed missing hyphen in title
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 25 Sep 2006 18:51:24 +0200
+
+sylpheed-claws-gtk2 (2.5.0~rc3-1) unstable; urgency=low
+
+  * New upstream release candidate
+  * debian/control
+  - until some policy is written about the right section for doc packages
+    fix override disparity for -doc package and love our ftp-masters ;-)
+
+ -- Ricardo Mones <mones@debian.org>  Wed,  6 Sep 2006 17:11:22 +0200
+
+sylpheed-claws-gtk2 (2.5.0~rc2-2) unstable; urgency=low
+
+  * debian/control
+  - fixed gettext versioned depend, 0.15 is not required - my fault :(
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 30 Aug 2006 08:53:48 +0200
+
+sylpheed-claws-gtk2 (2.5.0~rc2-1) unstable; urgency=medium
+
+  * New upstream release candidate
+  * debian/control
+  - Required gettext 0.15 now (Closes: #385161)
+  * debian/watch
+  - Use proper format for SF according uscan manual
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 30 Aug 2006 00:01:52 +0200
+
+sylpheed-claws-gtk2 (2.4.0-1) unstable; urgency=low
+
+  * New upstream release.
+  - Allows redefinition of folder types (Closes: #372899)
+  * debian/control
+  - Built for newer libetpan (Closes: #380369)
+  - Better description for -plugins meta package (Closes: #333501)
+  * debian/sylpheed-claws-gtk2.desktop
+  - Applied fix from ubuntu version 2.3.1-1ubuntu1
+  * debian/rules, debian/menu, debian/sylpheed-claws-gtk2-32x32.xpm
+  - Added icon to debian menu (Closes: #368963)
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 31 Jul 2006 18:23:07 +0200
+
+sylpheed-claws-gtk2 (2.3.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 20 Jun 2006 15:07:00 +0200
+
+sylpheed-claws-gtk2 (2.3.0-1) unstable; urgency=high
+
+  * New upstream release (security upload).
+  - Fixes CVE-2006-2920: URI bypass (Closes: #372889)
+  - Fixes sylpheed-claws-gtk2 does not obey $HOME (Closes: #370257)
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 14 Jun 2006 00:08:18 +0200
+
+sylpheed-claws-gtk2 (2.2.0-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control
+  - Fixed and improved descriptions
+  - Updated Standards-Version
+  * debian/inst-manual.sh debian/rules
+  - All formats in a row, added manual translations (fr,pl) to -doc
+
+ -- Ricardo Mones <mones@debian.org>  Mon,  8 May 2006 15:46:24 +0200
+
+sylpheed-claws-gtk2 (2.1.1-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control
+  - Fixed doc package to be suggested (Closes: #362616)
+  - Make arch-indep packages binNMU friendly (Closes: #351878)
+  * debian/watch
+  - Improve regexp to avoid other released packages.
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 17 Apr 2006 23:29:38 +0200
+
+sylpheed-claws-gtk2 (2.1.0-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control
+  - Updated maintainer email address, compatibility level raised
+  - Updated supported language list on -i18n package
+  - Fixed -doc package section
+  * debian/watch
+  - Added watch file
+  * debian/patches/20composefix.dpatch, 00list
+  - Backported patch removed
+
+ -- Ricardo Mones <mones@debian.org>  Wed,  5 Apr 2006 23:06:57 +0200
+
+sylpheed-claws-gtk2 (2.0.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control
+  - Updated Build-Depends (libetpan version).
+  * debian/patches/20composefix.dpatch, 00list
+  - Backport fix for IMAP drafting discovered after release.
+  * debian/control, debian/rules
+  - Added user manual package (sylpheed-claws-gtk2-doc).
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Mon,  6 Feb 2006 22:58:21 +0100
+
+sylpheed-claws-gtk2 (1.9.100-2) unstable; urgency=low
+
+  * debian/rules
+  - Fixed .desktop file name. Closes: #344188
+  * debian/control
+  - Fixed xlibs-dev Build-Dep. Closes: #346916
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Mon,  9 Jan 2006 08:53:11 +0100
+
+sylpheed-claws-gtk2 (1.9.100-1.1) unstable; urgency=low
+
+  * Non-maintainer upload with permission of the maintainer.
+  * Use -Wl,--as-needed when linking, to prevent sylpheed-claws from picking
+    up dependencies on a large number of dependencies it doesn't use; this
+    appears to be the only reasonable way to drop these dependencies when
+    using libtool convenience libraries.  Closes: #340729.
+
+ -- Steve Langasek <vorlon@debian.org>  Fri, 25 Nov 2005 01:41:28 -0800
+
+sylpheed-claws-gtk2 (1.9.100-1) unstable; urgency=high
+
+  * New upstream release.
+  - Buffer overflow on import fixed (Closes: #339529)
+  - IMAP code has been heavily fixed (Closes: #325082, #329196, #324667)
+    See www.thewildbeast.co.uk/sylpheed-claws/bugzilla/show_bug.cgi?id=803
+    and duplicates.
+  - Translation for pt_BR updated (Closes: #329040)
+  * debian/control
+  - Building with libreadline5-dev now, required libetpan-dev >= 0.40.
+  - Fixed Recommends line for metamail and others (Closes: #336163)
+  * debian/rules
+  - Upstream manpage and binary names have changed.
+  * debian/docs
+  - Some documents have changed their name.
+  * debian/patches/01configure.patch
+  - Renamed and regenerated (name changes made it invalid).
+  * debian/control, debian/rules, debian/patches/00list,*.dpatch
+  - Patch management using dpatch.make
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Sat, 19 Nov 2005 01:04:50 +0100
+
+sylpheed-claws-gtk2 (1.9.14-1) unstable; urgency=low
+
+  * New upstream release (Closes: #311456)
+  * patches/90fix-pt_BR-view.menu.patch, patches/00configure.patch
+  - Removed temporary fix.
+  - Try to make configure patch minimal.
+  * debian/rules
+  - Reenabled building with LDAP and JPilot (Closes: #325248)
+  - Added --with-{manual,faq}dir options (removed from patch).
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Thu,  8 Sep 2005 18:37:53 +0200
+
+sylpheed-claws-gtk2 (1.9.13-2) unstable; urgency=low
+
+  * debian/rules
+  - Fixed docs (removed) (Closes: #324541)
+  - Make desktop entry visible also for KDE.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Tue, 23 Aug 2005 09:09:49 +0200
+
+sylpheed-claws-gtk2 (1.9.13-1) unstable; urgency=low
+
+  * New upstream release. First for unstable.
+  * Rebuilt with newer libaspell (Closes: #318889)
+  * debian/control, patches/00configure.patch
+  - Added new Norwegian Bokmal translation.
+  * debian/rules
+  - Added pgpcore.so to the pgpmime deb, fixed icon names.
+  * debian/control, debian/rules
+  - Added new pgpinline plugin, now in upstream source tree.
+  * debian/README.Debian
+  - Updated and rationale for not having a new ppgcore package.
+  * 10get_xface_from_file.patch, 11mark_trashed_as_read.patch
+  - Added feature patches.
+  * debian/sylpheed-claws-gtk2.desktop
+  - Added [es] comment.
+  * debian/docs
+  - Fixed, added RELEASE_NOTES.claws.
+  * debian/control, debian/copyright
+  - Fixed package description, copyright and Debian policy version.
+  * 90fix-pt_BR-view.menu.patch
+  - Temporary fix (segfault clicking View menu on pt_BR locale).
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Fri, 19 Aug 2005 19:59:31 +0200
+
+sylpheed-claws-gtk2 (1.9.6cvs41-1) experimental; urgency=low
+
+  * New CVS snapshot
+  * debian/control, debian/rules
+  - Removed image-viewer plugin, now is builtin. Added to Replaces.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Mon, 18 Apr 2005 18:37:53 +0200
+
+sylpheed-claws-gtk2 (1.9.6cvs1-1) experimental; urgency=low
+
+  * New CVS snapshot.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Sat, 19 Mar 2005 12:49:24 +0100
+
+sylpheed-claws-gtk2 (1.0.1cvs7.3-1) experimental; urgency=low
+
+  * New CVS snapshot (Closes: #290638, #292488)
+  * patches/00configure
+  - Fixed gettext package name.
+  * debian/control
+  - Fixed image-viewer depends cut'n'paste typo.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Tue, 15 Feb 2005 15:42:15 +0100
+
+sylpheed-claws-gtk2 (0.9.12cvs187.1-1) experimental; urgency=low
+
+  * New CVS snapshot.
+  * debian/patches/00configure.patch, debian/docs
+  - Regenerated (README.jp and others absent now).
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Wed,  8 Dec 2004 14:04:36 +0100
+
+sylpheed-claws-gtk2 (0.9.12cvs122.1-1) experimental; urgency=low
+
+  * New CVS snapshot (Closes: #267764)
+  - Thanks Stephen Kitt <steve@sk2.org> for notifying.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Wed,  6 Oct 2004 18:34:43 +0200
+
+sylpheed-claws-gtk2 (0.9.12cvs114.1-1) experimental; urgency=low
+
+  * New CVS snapshot.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Thu, 30 Sep 2004 00:36:27 +0200
+
+sylpheed-claws-gtk2 (0.9.12cvs102.3-1) experimental; urgency=low
+
+  * New CVS snapshot.
+  * debian/control
+  - Fixed -i18n long description.
+  - Fixed -pgpmime dependencies (Closes: #271459)
+  * debian/rules, sylpheed-claws-gtk2.menu, sylpheed-claws-gtk2.desktop
+  - Enabled menu entry; added images and desktop entry.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Tue, 14 Sep 2004 10:07:19 +0200
+
+sylpheed-claws-gtk2 (0.9.12cvs93.1-1) experimental; urgency=low
+
+  * New CVS snapshot.
+  * debian/control, debian/rules
+  - Fixed -plugins Dependends (Closes: #267764)
+  - Added upstream -pgpmime plugin.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Fri, 27 Aug 2004 11:14:32 +0200
+
+sylpheed-claws-gtk2 (0.9.12cvs65.1-1) experimental; urgency=low
+
+  * New CVS snapshot.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Wed, 18 Aug 2004 12:20:51 +0200
+
+sylpheed-claws-gtk2 (0.9.12cvs39.7-1) experimental; urgency=low
+
+  * New CVS snapshot.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Fri, 30 Jul 2004 10:48:58 +0200

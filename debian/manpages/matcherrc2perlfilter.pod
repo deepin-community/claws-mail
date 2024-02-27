@@ -1,0 +1,81 @@
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+matcherrc2perlfilter - convert matcherrc rules to Perl
+
+=head1 DESCRIPTION
+
+This manual page documents briefly the B<matcherrc2perlfilter>.
+
+This manual page was written for the Debian™ distribution because the
+original program does not have a manual page.
+
+This script converts matcherrc filtering rules (default rules format)
+into perl_filter rules for usage with the B<claws-mail-perl-filter>
+plugin of the I<Claws Mail> mailer.
+
+=head1 USAGE
+
+matcherrc2perlfilter
+
+No arguments required. Conversion is done for current user only.
+
+=head1 FILES
+
+=over 4
+
+=item F<~/.claws-mail/matcherrc>
+
+Input file where standard filtering rules lie.
+
+=item F<~/.claws-mail/perl_filter>
+
+Output file written by this script. Converted rules are appended if the
+file already exists, so be careful when running the script more than
+once.
+
+=back
+
+=head1 CAVEATS
+
+This conversion script doesn't produce nice Perl code and is just
+intended to get you started. If you choose to use the Perl plugin,
+consider rewriting your rules.
+
+=head1 SEE ALSO
+
+B<claws-mail>(1),
+B<claws-mail-perl-filter>(7).
+
+=head1 AUTHORS
+
+=over
+
+=item Holger Berndt <berndth@gmx.de>
+
+Wrote the B<matcherrc2perlfilter> script.
+
+=item Ricardo Mones <mones@debian.org>
+
+Wrote this manpage for the Debian system.
+
+=back
+
+=head1 COPYRIGHT
+
+Copyright © 2006-2020 Ricardo Mones
+
+This manual page was written for the Debian system (but may be used by
+others).
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License, Version 3 or (at your
+option) any later version published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public License
+can be found in F</usr/share/common-licenses/GPL>.
+
+=cut
